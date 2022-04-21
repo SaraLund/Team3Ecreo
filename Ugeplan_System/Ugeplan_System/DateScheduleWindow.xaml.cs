@@ -10,30 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Ugeplan_System
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DateScheduleWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DateScheduleWindow : Window
     {
-        public MainWindow()
+        public DateScheduleWindow()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MondayButton_Click(object sender, RoutedEventArgs e)
-        {
-            var Hej = new DateScheduleWindow();
-            Hej.Show();
         }
     }
 }
