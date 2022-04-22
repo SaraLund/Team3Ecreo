@@ -12,9 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Model\" />
-    <Folder Include="View\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
 
   <ItemGroup>
