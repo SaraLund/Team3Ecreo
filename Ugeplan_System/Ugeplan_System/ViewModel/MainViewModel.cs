@@ -34,5 +34,44 @@ namespace Ugeplan_System.ViewModel
         {
 
         }
+
+        public void GetEmployee(List<Employee> employees)
+        {
+            foreach (Employee e in employees)
+            {
+                Evm.Add(new EmployeeViewModel());
+            }
+        }
+
+        public void AddEmployee()
+        {
+            bool r = EmployeeRepo.AddEmployee();
+
+            if (r)
+            {
+                Evm.Add(new EmployeeViewModel());
+            }
+        }
+
+        public void GetDate(List<Date> dates)
+        {
+            foreach (Date d in dates)
+            {
+                Dvm.Add(new DateViewModel());
+            }
+        }
+
+        public void AddDate()
+        {
+            bool r = DateRepo.AddDate();
+
+            if (r)
+            {
+                Dvm.Add(new DateViewModel());
+            }
+        }
+
+
+
     }
 }
