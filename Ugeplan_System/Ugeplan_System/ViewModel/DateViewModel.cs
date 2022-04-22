@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ugeplan_System.ViewModel
 {
-    class DateViewModel
+    public class DateViewModel
     {
     }
 }

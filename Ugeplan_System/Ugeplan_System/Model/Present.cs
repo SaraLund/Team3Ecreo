@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ugeplan_System.Model
 {
-    public class DateRepo
+    public enum Present
     {
+        Present,
+        NotPresent
     }
 }
