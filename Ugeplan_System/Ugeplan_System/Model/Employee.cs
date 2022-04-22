@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ugeplan_System
+namespace Ugeplan_System.Model
 {
-    class Employee
+    public class Employee
     {
         
         public string Name { get; set; }
