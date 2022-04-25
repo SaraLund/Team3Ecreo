@@ -47,7 +47,7 @@ namespace Ugeplan_System.ViewModel
         public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
         {
             Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber));
-            
+            er.AddEmployee(name, jobPosition, mail, phoneNumber);
         }
 
         public void GetDate(List<Date> dates)
@@ -61,6 +61,7 @@ namespace Ugeplan_System.ViewModel
         public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime)
         {
             Dvm.Add(new DateViewModel(day, scheduleDate, startTime, endTime));
+            dr.AddDate(scheduleDate, startTime, endTime);
         }
 
 
