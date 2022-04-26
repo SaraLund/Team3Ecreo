@@ -35,7 +35,7 @@
             <Label x:Name="WednesdayLabel" Content="Row0 column2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="ThursdayLabel" Content="Row0 column3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="FridayLabel" Content="Row0 column4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            
+
 
         </Grid>
         <Grid Margin="0,10,0,360" Grid.Row="1">
@@ -51,9 +51,9 @@
             <Button x:Name="SearchButton" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" BorderBrush="White" Background="Gainsboro"/>
             <Image x:Name="image" Height="100" Width="100" Grid.Column="1" Margin="83,-25,83,-25" Panel.ZIndex="9"/>
         </Grid>
-        <Button x:Name="button1" Content="Næste uge" HorizontalAlignment="Left" Margin="728,82,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button x:Name="button2" Content="Sidste uge" HorizontalAlignment="Left" Margin="568,82,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Visible" Click="button2_Click"/>
-        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="660,79,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="NextWeekButton" Content="Næste uge" HorizontalAlignment="Left" Margin="728,82,0,0" Grid.Row="1" VerticalAlignment="Top" Click="NextWeekButton_Click"/>
+        <Button x:Name="LastWeekButton" Content="Sidste uge" HorizontalAlignment="Left" Margin="568,82,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Visible" Click="LastWeekButton_Click"/>
+        <Label x:Name="WeekNumberLabel" Content="uge 1 2022&#xA;&#xA;&#xA;" HorizontalAlignment="Left" Margin="641,78,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Image x:Name="ecreo_png" Margin="298,4,298,354" Grid.RowSpan="2" Stretch="Fill" Source="/ecreo.png"></Image>
     </Grid>
 </Window>
