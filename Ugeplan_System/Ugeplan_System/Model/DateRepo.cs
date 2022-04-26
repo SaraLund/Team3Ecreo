@@ -10,7 +10,7 @@ namespace Ugeplan_System.Model
     public class DateRepo
     {
         private List<Date> dates = new List<Date>();
-        private static readonly string connStr = "Server=10.56.8.36;Datebase=PEDB03;User Id=PE-03;Password=OPENDB_03";
+        private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
 
         public DateRepo()
         {
