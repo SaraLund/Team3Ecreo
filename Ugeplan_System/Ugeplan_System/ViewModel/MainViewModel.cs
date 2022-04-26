@@ -32,43 +32,36 @@ namespace Ugeplan_System.ViewModel
         }
         public MainViewModel()
         {
-
+            GetEmployee(er.GetAllEmployee());
+            GetDate(dr.GetAllDates());
         }
 
         public void GetEmployee(List<Employee> employees)
         {
             foreach (Employee e in employees)
             {
-                Evm.Add(new EmployeeViewModel());
+                Evm.Add(new EmployeeViewModel(e.EmployeeId, e.Name, e.JobPosition, e.Mail, e.PhoneNumber));
             }
         }
 
-        public void AddEmployee()
+        public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
         {
-            bool r = EmployeeRepo.AddEmployee();
-
-            if (r)
-            {
-                Evm.Add(new EmployeeViewModel());
-            }
+            Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber));
+            er.AddEmployee(name, jobPosition, mail, phoneNumber);
         }
 
         public void GetDate(List<Date> dates)
         {
             foreach (Date d in dates)
             {
-                Dvm.Add(new DateViewModel());
+                Dvm.Add(new DateViewModel(d.Day, d.ScheduleDate, d.StartTime, d.EndTime));
             }
         }
 
-        public void AddDate()
+        public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime)
         {
-            bool r = DateRepo.AddDate();
-
-            if (r)
-            {
-                Dvm.Add(new DateViewModel());
-            }
+            Dvm.Add(new DateViewModel(day, scheduleDate, startTime, endTime));
+            dr.AddDate(scheduleDate, startTime, endTime);
         }
 
 
