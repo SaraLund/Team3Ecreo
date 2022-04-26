@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ugeplan_System
+namespace Ugeplan_System.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

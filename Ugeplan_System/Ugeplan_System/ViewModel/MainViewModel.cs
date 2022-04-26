@@ -64,7 +64,5 @@ namespace Ugeplan_System.ViewModel
             dr.AddDate(scheduleDate, startTime, endTime);
         }
 
-
-
     }
 }
