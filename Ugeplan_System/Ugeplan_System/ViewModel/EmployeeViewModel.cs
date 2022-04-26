@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ugeplan_System.Model;
 
 namespace Ugeplan_System.ViewModel
 {
     public class EmployeeViewModel
     {
+        private EmployeeRepo emRepo = new EmployeeRepo();
         public int EmployeeId { get; set; }
         public string Name { get; set; }
         public string JobPosition { get; set; }
@@ -23,9 +25,21 @@ namespace Ugeplan_System.ViewModel
             PhoneNumber = phoneNumber;
         }
 
+        public List<EmployeeViewModel> employeeList { get; set; }
         public EmployeeViewModel()
         {
+            employeeList = new List<EmployeeViewModel>();
+            GetAllEmployees();
+        }
 
+        public void GetAllEmployees()
+        {
+            List<Employee> employeeTemp = emRepo.GetAllEmployee();
+            foreach (Employee e in employeeTemp)
+            {
+                EmployeeViewModel employeeViewModel = new EmployeeViewModel(e.EmployeeId ,e.Name, e.JobPosition, e.Mail, e.PhoneNumber);
+                employeeList.Add(employeeViewModel);
+            }
         }
 
         public override string ToString()

@@ -21,13 +21,16 @@ namespace Ugeplan_System.View
     public partial class DateScheduleWindow : Window
     {
 
-        MainViewModel mvm = MainViewModel.Mvm;
-        public List<Label> labels = new List<Label>();
-        EmployeeViewModel evm = new EmployeeViewModel();
+        EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
         public DateScheduleWindow()
         {
             InitializeComponent();
+            for (int i = 0; i < employeeViewModel.employeeList.Count; i++)
+            {
+                //listBox.Items.Add(new ListBoxItem().Content = i);
+                listBox.Items.Add(new ListBoxItem().Content = employeeViewModel.Name[i].ToString());
+            }
         }
 
         //private void LoadLabel(Object sender, EventArgs e)
@@ -40,11 +43,7 @@ namespace Ugeplan_System.View
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < mvm.Evm.Count; i++)
-            {
-                //listBox.Items.Add(new ListBoxItem().Content = i);
-                listBox.Items.Add(new ListBoxItem().Content = evm.Name[i].ToString());
-            }
+            
         }
     }
 }

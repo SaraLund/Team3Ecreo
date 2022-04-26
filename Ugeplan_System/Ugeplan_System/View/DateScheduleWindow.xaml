@@ -23,19 +23,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBox x:Name="DateTextBox" HorizontalAlignment="Left" Margin="10,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32" BorderBrush="White" Background="Gainsboro" IsEnabled="False"/>
-            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click"/>
+            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" BorderBrush="White" Background="Gainsboro"/>
             <Image x:Name="ecreo_png" Margin="35,0,35,0" Grid.RowSpan="2" Grid.Column="1" Stretch="Fill" Source="/ecreo.png"></Image>
         </Grid>
-        <ListBox x:Name="listBox" Margin="0,113,0,31" Grid.Row="1">
-            <ListBoxItem x:Name="EmployeeListLabel"></ListBoxItem>
-            <!--<ListBox.ItemTemplate>
+        <ListBox x:Name="listBox" Margin="0,113,0,31" ItemsSource="{Binding Employee}" Grid.Row="1">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label x:Name="EmployeeListLabel" Content="Hej"></Label>
-                        <Label Content="hej"></Label>
+                        <Label x:Name="EmployeeListLabel" Content="{Binding name}"></Label>
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate> -->
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>
