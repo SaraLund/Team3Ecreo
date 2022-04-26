@@ -24,28 +24,26 @@ namespace Ugeplan_System.View
         MainViewModel mvm = MainViewModel.Mvm;
         public List<Label> labels = new List<Label>();
         EmployeeViewModel evm = new EmployeeViewModel();
-        public List<string> temp = new List<string>();
 
         public DateScheduleWindow()
         {
             InitializeComponent();
         }
 
-        private void LoadLabel(Object sender, EventArgs e)
-        {
-            for(int i = 0; i < mvm.Evm.Count; i++)
-            {
-                labels.Add(new Label() { Name = evm.Name[i].ToString() });
-            }
-        }
+        //private void LoadLabel(Object sender, EventArgs e)
+        //{
+        //    for(int i = 0; i < mvm.Evm.Count; i++)
+        //    {
+        //        labels.Add(new Label() { Name = evm.Name[i].ToString() });
+        //    }
+        //}
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            temp.Add("Yikes");
-            temp.Add("Nej");
-            for (int i = 0; i < temp.Count; i++)
+            for (int i = 0; i < mvm.Evm.Count; i++)
             {
-                listBox.Items.Add(new ListBoxItem().Content = temp[i]);
+                //listBox.Items.Add(new ListBoxItem().Content = i);
+                listBox.Items.Add(new ListBoxItem().Content = evm.Name[i].ToString());
             }
         }
     }

@@ -26,7 +26,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT EmployeeId, Name, JobPosition, Mail, PhoneNumber FROM Employee", conn);
+                SqlCommand command = new SqlCommand("SELECT EmployeeId, EmployeeName, JobPosition, Mail, PhoneNumber FROM Employee", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -34,7 +34,7 @@ namespace Ugeplan_System.Model
                     {
                         employee = new Employee();
                         employee.EmployeeId = int.Parse(reader["EmployeeId"].ToString());
-                        employee.Name = reader["Name"].ToString();
+                        employee.Name = reader["EmployeeName"].ToString();
                         employee.JobPosition = reader["JobPosition"].ToString();
                         employee.Mail = reader["Mail"].ToString();
                         employee.PhoneNumber = reader["PhoneNumber"].ToString();
@@ -59,9 +59,9 @@ namespace Ugeplan_System.Model
             using(SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.Employee(Name, JobPosition, Mail, PhoneNumber)" +
-                                                    "VALUES (@name, @ jobPosition, @mail, @phoneNumber)", conn);
-                command.Parameters.Add("@name", System.Data.SqlDbType.NVarChar).Value = e.Name;
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.Employee(EmployeeName, JobPosition, Mail, PhoneNumber)" +
+                                                    "VALUES (@employeeName, @ jobPosition, @mail, @phoneNumber)", conn);
+                command.Parameters.Add("@employeeName", System.Data.SqlDbType.NVarChar).Value = e.Name;
                 command.Parameters.Add("@jobPosition", System.Data.SqlDbType.NVarChar).Value = e.JobPosition;
                 command.Parameters.Add("@mail", System.Data.SqlDbType.NVarChar).Value = e.Mail;
                 command.Parameters.Add("@phoneNumber", System.Data.SqlDbType.NVarChar).Value = e.PhoneNumber;
@@ -102,7 +102,7 @@ namespace Ugeplan_System.Model
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("UPDATE Employee SET Name = @name, JobPosition = @jobPosition, Mail = @mail, PhoneNumber = @phoneNumber" +
+                    SqlCommand command = new SqlCommand("UPDATE Employee SET EmployeeName = @employeeName, JobPosition = @jobPosition, Mail = @mail, PhoneNumber = @phoneNumber" +
                                                         "WHERE EmployeeId = @employeeId", conn);
 
                     command.Parameters.Add(@name, System.Data.SqlDbType.NVarChar).Value = name;
