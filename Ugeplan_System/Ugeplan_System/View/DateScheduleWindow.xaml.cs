@@ -24,6 +24,7 @@ namespace Ugeplan_System.View
         MainViewModel mvm = MainViewModel.Mvm;
         public List<Label> labels = new List<Label>();
         EmployeeViewModel evm = new EmployeeViewModel();
+        public List<string> temp = new List<string>();
 
         public DateScheduleWindow()
         {
@@ -36,18 +37,16 @@ namespace Ugeplan_System.View
             {
                 labels.Add(new Label() { Name = evm.Name[i].ToString() });
             }
-            PlaceLabels();
         }
 
-        private void PlaceLabels()
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            int topvalue = 0;
-            foreach (Label item in labels)
+            temp.Add("Yikes");
+            temp.Add("Nej");
+            for (int i = 0; i < temp.Count; i++)
             {
-               
-
+                listBox.Items.Add(new ListBoxItem().Content = temp[i]);
             }
         }
-
     }
 }
