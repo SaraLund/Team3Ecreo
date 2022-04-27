@@ -26,10 +26,10 @@
                 <RowDefinition Height="224*"></RowDefinition>
             </Grid.RowDefinitions>
             <Button x:Name="MondayButton" Content="Row1 column0" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="0" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="MondayButton_Click"></Button>
-            <Button x:Name="TuesdayButton" Content="Row1 column1" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="1" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
-            <Button x:Name="WednsdayButton" Content="Row1 column2" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="2" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
-            <Button x:Name="ThursdayButton" Content="Row1 column3" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="3" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
-            <Button x:Name="FridayButton" Content="Row1 column4" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="4" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
+            <Button x:Name="TuesdayButton" Content="Row1 column1" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="1" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="TuesdayButton_Click"></Button>
+            <Button x:Name="WednsdayButton" Content="Row1 column2" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="2" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="WednsdayButton_Click"></Button>
+            <Button x:Name="ThursdayButton" Content="Row1 column3" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="3" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="ThursdayButton_Click"></Button>
+            <Button x:Name="FridayButton" Content="Row1 column4" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="4" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="FridayButton_Click"></Button>
             <Label x:Name="MondayLabel" Content="Row0 column0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="TuesdayLabel" Content="Row0 column1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="WednesdayLabel" Content="Row0 column2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -47,8 +47,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox x:Name="SearchTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="4,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32" BorderBrush="White" Background="Gainsboro"/>
-            <Button x:Name="SearchButton" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" BorderBrush="White" Background="Gainsboro"/>
+            <TextBox x:Name="SearchTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="4,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32" BorderBrush="White" Background="Gainsboro"/>
+            <Button x:Name="SearchButton" Content="Søg" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="SearchButton_Click"/>
             <Image x:Name="image" Height="100" Width="100" Grid.Column="1" Margin="83,-25,83,-25" Panel.ZIndex="9"/>
         </Grid>
         <Button x:Name="NextWeekButton" Content="Næste uge" HorizontalAlignment="Left" Margin="728,82,0,0" Grid.Row="1" VerticalAlignment="Top" Click="NextWeekButton_Click"/>

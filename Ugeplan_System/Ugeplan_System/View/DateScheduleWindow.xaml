@@ -10,8 +10,8 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="440"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Margin="0,10,0,360" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -22,11 +22,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="DateTextBox" HorizontalAlignment="Left" Margin="10,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32" BorderBrush="White" Background="Gainsboro" IsEnabled="False"/>
-            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" BorderBrush="White" Background="Gainsboro"/>
+            <Label x:Name="DateLabel" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="185" Height="32"/>
+            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click"/>
             <Image x:Name="ecreo_png" Margin="35,0,35,0" Grid.RowSpan="2" Grid.Column="1" Stretch="Fill" Source="/ecreo.png"></Image>
         </Grid>
-        <ListBox x:Name="listBox" Margin="0,113,0,31" Grid.Row="1">
+        <ListBox x:Name="listBox" Margin="0,113,0,31" Grid.Row="2">
             <ListBoxItem x:Name="EmployeeListLabel"></ListBoxItem>
         </ListBox>
     </Grid>

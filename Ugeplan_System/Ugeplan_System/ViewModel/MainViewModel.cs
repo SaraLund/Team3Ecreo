@@ -14,22 +14,6 @@ namespace Ugeplan_System.ViewModel
         private static readonly EmployeeRepo er = new EmployeeRepo();
         public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
         private static readonly DateRepo dr = new DateRepo();
-        private static MainViewModel mvm;
-        public static MainViewModel Mvm
-        {
-            get
-            {
-                if (mvm != null)
-                {
-                    return mvm;
-                }
-                else
-                {
-                    return Mvm = new MainViewModel();
-                }
-            }
-            set { mvm = value; }
-        }
         public MainViewModel()
         {
             GetEmployee(er.GetAllEmployee());
@@ -40,7 +24,7 @@ namespace Ugeplan_System.ViewModel
                 {
                     if (Evm[i].EmployeeId == Dvm[j].EmployeeId)
                     {
-                        Evm[i].dates.Add(Dvm[j]);
+                        Evm[i].Dates.Add(Dvm[j]);
                     }
                 }
             }

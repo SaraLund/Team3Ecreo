@@ -25,7 +25,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT DateId, WeekDayName, StartTime, EndTime, EmployeeId FROM DateTable", conn);
+                SqlCommand command = new SqlCommand("SELECT DateId, WeekDayName, StartTime, EndTime, EmployeeId, ThisDate FROM DateTable", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
