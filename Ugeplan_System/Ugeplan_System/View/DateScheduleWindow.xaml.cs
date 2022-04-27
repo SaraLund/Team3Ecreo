@@ -29,7 +29,7 @@ namespace Ugeplan_System.View
             for (int i = 0; i < employeeViewModel.employeeList.Count; i++)
             {
                 //listBox.Items.Add(new ListBoxItem().Content = i);
-                listBox.Items.Add(new ListBoxItem().Content = employeeViewModel.Name[i].ToString());
+                listBox.Items.Add(new ListBoxItem().Content = employeeViewModel.employeeList[i].Name);
             }
         }
 
