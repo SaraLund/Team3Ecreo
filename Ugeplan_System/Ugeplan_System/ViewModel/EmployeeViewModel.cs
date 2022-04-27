@@ -15,7 +15,7 @@ namespace Ugeplan_System.ViewModel
         public string JobPosition { get; set; }
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
-
+        public List<DateViewModel> dates { get; set; } = new List<DateViewModel>();
         public EmployeeViewModel(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
         {
             EmployeeId = employeeId;

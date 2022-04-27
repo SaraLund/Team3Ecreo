@@ -13,6 +13,7 @@ namespace Ugeplan_System.Model
         public DateTime ScheduleDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
+        public int EmployeeId { get; set; }
 
         public Date()
         {

@@ -13,6 +13,8 @@ namespace Ugeplan_System.Model
         public string JobPosition { get; set; }
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
+        public List<Date> dates { get; set; } = new List<Date>(); 
+        
 
         public Employee(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
         {

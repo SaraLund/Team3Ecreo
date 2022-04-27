@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ugeplan_System.ViewModel;
+using System.Globalization;
 
 namespace Ugeplan_System.View
 {
@@ -21,62 +22,82 @@ namespace Ugeplan_System.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel mvm = new MainViewModel();
+        // MainViewModel mvm = MainViewModel.Mvm;
         EmployeeViewModel evm = new EmployeeViewModel();
-        int week = 1;
-        int day = 4;
-        int year = 2022;
-        int month = 4;
-        
+     
+
+        public int Week { get; set; }
+        public DateTime Day { get; set; }
+        public int Year { get; set; }
+
+
+
         public MainWindow()
         {
             InitializeComponent();
-            MondayLabel.Content = $"Mandag {day}/{month}";
-            day++;
-            TuesdayLabel.Content = $"Tirsdag {day}/{month}";
-            day++;
-            WednesdayLabel.Content = $"Onsdag {day}/{month}";
-            day++;
-            ThursdayLabel.Content = $"Torsdag {day}/{month}";
-            day++;
-            FridayLabel.Content = $"Fredag {day}/{month}";
-
-            for (int i = 0; i < mvm.Evm.Count; i++)
-            {
-                Ellipse EllipseSpawner = new Ellipse();
-                
-            }
+            Week = ISOWeek.GetWeekOfYear(DateTime.Now);
+            Year = DateTime.Now.Year;
+            WeekNumberLabel.Content = $"uge {Week} {Year}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
+            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
+            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
+            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
+            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
+            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
+            
         }
 
         private void MondayButton_Click(object sender, RoutedEventArgs e)
         {
             var Hej = new DateScheduleWindow();
             Hej.Show();
-            MondayLabel.Content = $"Mandag {day}/{month}";
-            
         }
 
         private void NextWeekButton_Click(object sender, RoutedEventArgs e)
         {
-            if (week == 52)
+            if (Week == 52)
             {
-                week = 0;
-                year++;
+                Week = 0;
+                Year++;
             }
-            week++;
-            WeekNumberLabel.Content =$"uge {week} {year}";
+            Week++;
+            WeekNumberLabel.Content =$"uge {Week} {Year}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
+            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
+            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
+            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
+            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
+            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
         }
 
         private void LastWeekButton_Click(object sender, RoutedEventArgs e)
         {
-            if (week == 1 || week == 0)
+            if (Week == 1 || Week == 0)
             {
-                week = 53;
-                year--;
+                Week = 53;
+                Year--;
             }
-            week--;
+            Week--;
 
-            WeekNumberLabel.Content = $"uge {week} {year}";
+            WeekNumberLabel.Content = $"uge {Week} {Year}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
+            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
+            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
+            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
+            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
+            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
         }
     }
 }
