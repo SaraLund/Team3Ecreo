@@ -26,15 +26,6 @@
                 <RowDefinition Height="224*"></RowDefinition>
             </Grid.RowDefinitions>
             <Button x:Name="MondayButton" Content="Row1 column0" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="0" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="MondayButton_Click"></Button>
-            <WrapPanel x:Name="MondayWrapPanel" Grid.Row="1" Grid.Column="0">
-                <ItemsControl>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding Name}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </WrapPanel>
             <Button x:Name="TuesdayButton" Content="Row1 column1" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="1" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
             <Button x:Name="WednsdayButton" Content="Row1 column2" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="2" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
             <Button x:Name="ThursdayButton" Content="Row1 column3" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="3" Background="Gainsboro" BorderBrush="White" Foreground="Black"></Button>
