@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ugeplan_System.ViewModel;
 
 namespace Ugeplan_System.View
 {
@@ -19,9 +20,30 @@ namespace Ugeplan_System.View
     /// </summary>
     public partial class DateScheduleWindow : Window
     {
+
+        EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+
         public DateScheduleWindow()
         {
             InitializeComponent();
+            for (int i = 0; i < employeeViewModel.employeeList.Count; i++)
+            {
+                //listBox.Items.Add(new ListBoxItem().Content = i);
+                listBox.Items.Add(new ListBoxItem().Content = employeeViewModel.employeeList[i].Name);
+            }
+        }
+
+        //private void LoadLabel(Object sender, EventArgs e)
+        //{
+        //    for(int i = 0; i < mvm.Evm.Count; i++)
+        //    {
+        //        labels.Add(new Label() { Name = evm.Name[i].ToString() });
+        //    }
+        //}
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
