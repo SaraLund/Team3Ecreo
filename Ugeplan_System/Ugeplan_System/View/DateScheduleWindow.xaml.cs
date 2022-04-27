@@ -33,17 +33,9 @@ namespace Ugeplan_System.View
             }
         }
 
-        //private void LoadLabel(Object sender, EventArgs e)
-        //{
-        //    for(int i = 0; i < mvm.Evm.Count; i++)
-        //    {
-        //        labels.Add(new Label() { Name = evm.Name[i].ToString() });
-        //    }
-        //}
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Close();
         }
     }
 }
