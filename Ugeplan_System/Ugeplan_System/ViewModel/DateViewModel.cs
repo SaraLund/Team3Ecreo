@@ -12,18 +12,20 @@ namespace Ugeplan_System.ViewModel
         public DateTime ScheduleDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
+        public int EmployeeId { get; set; }
 
         public DateViewModel()
         {
 
         }
 
-        public DateViewModel(string day, DateTime scheduleDate, string startTime, string endTime)
+        public DateViewModel(string day, DateTime scheduleDate, string startTime, string endTime, int employeeId)
         {
             Day = day;
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
+            EmployeeId = employeeId;
         }
 
         public override string ToString()

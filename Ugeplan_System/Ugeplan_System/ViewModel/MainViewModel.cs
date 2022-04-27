@@ -34,6 +34,16 @@ namespace Ugeplan_System.ViewModel
         {
             GetEmployee(er.GetAllEmployee());
             GetDate(dr.GetAllDates());
+            for (int i = 0; i < Evm.Count; i++)
+            {
+                for (int j = 0; j < Dvm.Count; j++)
+                {
+                    if (Evm[i].EmployeeId == Dvm[j].EmployeeId)
+                    {
+                        Evm[i].dates.Add(Dvm[j]);
+                    }
+                }
+            }
         }
 
         public void GetEmployee(List<Employee> employees)
@@ -54,14 +64,14 @@ namespace Ugeplan_System.ViewModel
         {
             foreach (Date d in dates)
             {
-                Dvm.Add(new DateViewModel(d.Day, d.ScheduleDate, d.StartTime, d.EndTime));
+                Dvm.Add(new DateViewModel(d.Day, d.ScheduleDate, d.StartTime, d.EndTime, d.EmployeeId));
             }
         }
 
-        public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime)
+        public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime, int employeeId)
         {
-            Dvm.Add(new DateViewModel(day, scheduleDate, startTime, endTime));
-            dr.AddDate(scheduleDate, startTime, endTime);
+            Dvm.Add(new DateViewModel(day, scheduleDate, startTime, endTime, employeeId));
+            dr.AddDate(scheduleDate, startTime, endTime, employeeId);
         }
 
     }
