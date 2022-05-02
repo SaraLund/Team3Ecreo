@@ -25,7 +25,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT DateId, WeekDayName, StartTime, EndTime, EmployeeId, ThisDate FROM DateTable", conn);
+                SqlCommand command = new SqlCommand("SELECT DateId, ThisDate, StartTime, EndTime, EmployeeId FROM DateTable", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -33,7 +33,6 @@ namespace Ugeplan_System.Model
                     {
                         date = new Date();
                         date.DateId = int.Parse(reader["DateId"].ToString());
-                        date.Day = reader["WeekDayName"].ToString();
                         date.ScheduleDate = DateTime.Parse(reader["ThisDate"].ToString());
                         date.StartTime = reader["StartTime"].ToString();
                         date.EndTime = reader["EndTime"].ToString();
@@ -49,7 +48,6 @@ namespace Ugeplan_System.Model
         {
             Date newDate = new Date();
             newDate.DateId = dates.Count;
-            newDate.Day = date.DayOfWeek.ToString();
             newDate.ScheduleDate = date;
             newDate.StartTime = start;
             newDate.EndTime = end;
@@ -60,9 +58,8 @@ namespace Ugeplan_System.Model
             using(SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.DateTable(WeekDayName, ThisDate, StartTime, EndTime, EmployeeId)" +
-                                                    "VALUES (@weekDayName, @thisDate, @startTime, @endTime, @employeeId)", conn);
-                command.Parameters.Add("@weekDayName", System.Data.SqlDbType.NVarChar).Value = newDate.Day;
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.DateTable(ThisDate, StartTime, EndTime, EmployeeId)" +
+                                                    "VALUES (@thisDate, @startTime, @endTime, @employeeId)", conn);
                 command.Parameters.Add("@thisDate", System.Data.SqlDbType.DateTime2).Value = newDate.ScheduleDate;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = newDate.StartTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = newDate.EndTime;

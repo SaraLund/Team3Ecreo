@@ -9,7 +9,6 @@ namespace Ugeplan_System.Model
     public class Date
     {
         public int DateId { get; set; }
-        public string Day { get; set; }
         public DateTime ScheduleDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
@@ -20,9 +19,8 @@ namespace Ugeplan_System.Model
 
         }
 
-        public Date(string day, DateTime scheduleDate, string startTime, string endTime)
+        public Date( DateTime scheduleDate, string startTime, string endTime)
         {
-            Day = day;
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
@@ -30,7 +28,7 @@ namespace Ugeplan_System.Model
 
         public override string ToString()
         {
-            return $"{Day}, {ScheduleDate} - {StartTime} : {EndTime}";
+            return $"{ScheduleDate} - {StartTime} : {EndTime}";
         }
     }
 }

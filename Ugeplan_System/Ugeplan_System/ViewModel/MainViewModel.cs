@@ -48,13 +48,13 @@ namespace Ugeplan_System.ViewModel
         {
             foreach (Date d in dates)
             {
-                Dvm.Add(new DateViewModel(d.Day, d.ScheduleDate, d.StartTime, d.EndTime, d.EmployeeId));
+                Dvm.Add(new DateViewModel(d.ScheduleDate, d.StartTime, d.EndTime, d.EmployeeId));
             }
         }
 
         public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime, int employeeId)
         {
-            Dvm.Add(new DateViewModel(day, scheduleDate, startTime, endTime, employeeId));
+            Dvm.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId));
             dr.AddDate(scheduleDate, startTime, endTime, employeeId);
         }
 

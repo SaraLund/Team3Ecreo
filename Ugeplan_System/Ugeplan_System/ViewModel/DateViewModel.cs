@@ -8,7 +8,6 @@ namespace Ugeplan_System.ViewModel
 {
     public class DateViewModel
     {
-        public string Day { get; set; }
         public DateTime ScheduleDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
@@ -19,9 +18,8 @@ namespace Ugeplan_System.ViewModel
 
         }
 
-        public DateViewModel(string day, DateTime scheduleDate, string startTime, string endTime, int employeeId)
+        public DateViewModel(DateTime scheduleDate, string startTime, string endTime, int employeeId)
         {
-            Day = day;
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
@@ -30,7 +28,7 @@ namespace Ugeplan_System.ViewModel
 
         public override string ToString()
         {
-            return $"{Day}, {ScheduleDate} - {StartTime} : {EndTime}";
+            return $"{ScheduleDate} - {StartTime} : {EndTime}";
         }
     }
 }
