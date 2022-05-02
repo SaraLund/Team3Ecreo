@@ -1,0 +1,23 @@
+﻿<Window x:Class="Ugeplan_System.View.IdScheduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ugeplan_System.View"
+        mc:Ignorable="d"
+        Title="IdScheduleWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "100" ></RowDefinition>
+            <RowDefinition Height = "350" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="ecreo_png" Margin="298,5,298,40" Source="/ecreo.png" Grid.Row="0"/>
+        <Button x:Name="SearchButton" Content="Søg" HorizontalAlignment="Left" Margin="718,31,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="SearchButton_Click"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Margin="528,31,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="32" BorderBrush="White" Background="Gainsboro"/>
+        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="48,31,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click"/>
+        <ListBox x:Name="listBox" Margin="0,0,0,54" Grid.Row="1">
+            <ListBoxItem x:Name="EmployeeListLabel"/>
+        </ListBox>
+
+    </Grid>
+</Window>
