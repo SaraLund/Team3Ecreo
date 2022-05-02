@@ -34,7 +34,9 @@ namespace Ugeplan_System.View
             if(mainViewModel.Evm.Any(x => x.Name == Name))
             {
                 EmployeeViewModel evm = mainViewModel.Evm.First(x => x.Name == Name);
-                foreach (DateViewModel d in evm.Dates) 
+                List<DateViewModel> dates = evm.Dates.OrderBy(x => x.ScheduleDate).ToList();
+
+                foreach (DateViewModel d in dates) 
                 {
                     ListBoxItem listBoxItem = new ListBoxItem();
                     listBoxItem.FontSize = 30;

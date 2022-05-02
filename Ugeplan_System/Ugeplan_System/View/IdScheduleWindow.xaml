@@ -8,14 +8,15 @@
         Title="IdScheduleWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height = "100" ></RowDefinition>
+            <RowDefinition Height = "50.06" ></RowDefinition>
+            <RowDefinition Height="49.94"/>
             <RowDefinition Height = "350" ></RowDefinition>
         </Grid.RowDefinitions>
-        <Image x:Name="ecreo_png" Margin="298,5,298,40" Source="/ecreo.png" Grid.Row="0"/>
-        <Button x:Name="SearchButton" Content="Søg" HorizontalAlignment="Left" Margin="718,31,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="SearchButton_Click"/>
-        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Margin="528,31,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="32" BorderBrush="White" Background="Gainsboro"/>
-        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="48,31,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click"/>
-        <ListBox x:Name="listBox" Margin="0,0,0,54" Grid.Row="1">
+        <Image x:Name="ecreo_png" Margin="298,5,298,40" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
+        <Button x:Name="SearchButton" Content="Søg" HorizontalAlignment="Left" Margin="203,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="SearchButton_Click" Grid.RowSpan="2"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Margin="13,20,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="32" BorderBrush="White" Background="Gainsboro" Grid.RowSpan="2"/>
+        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="730,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+        <ListBox x:Name="listBox" Margin="0,0,0,54" Grid.Row="2">
             <ListBoxItem x:Name="EmployeeListLabel"/>
         </ListBox>
 
