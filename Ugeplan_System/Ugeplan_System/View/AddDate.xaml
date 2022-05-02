@@ -1,0 +1,30 @@
+﻿<Window x:Class="Ugeplan_System.View.AddDate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ugeplan_System.View"
+        mc:Ignorable="d"
+        Title="AddDate" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
+        <Label Grid.Row="1" Content="ID" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>
+        <TextBox x:Name="TextBoxScheduleDate" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
+        <Label Grid.Row="2" Content="Dato" Margin="100,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
+        <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
+        <Label Grid.Row="3" Content="Tid" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,331,0" ></Label>
+        <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
+        <Button Grid.Row="4" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+    </Grid>
+</Window>
