@@ -29,20 +29,25 @@ namespace Ugeplan_System.View
             set { mvm = value; }
         }
 
-        public AddDate()
+        public AddDate(MainViewModel mvm)
         {
+            Mvm = mvm;
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Mvm = new MainViewModel();
-            string day = "Mandag";
             DateTime scheduleDate = Convert.ToDateTime(TextBoxScheduleDate.Text);
             string startTime = TextBoxStartTime.Text;
             string endTime = TextBoxEndTime.Text;
             int emplayeeId = int.Parse(TextBoxID.Text);
-            Mvm.AddDate(day, scheduleDate, startTime, endTime, emplayeeId);
+            Mvm.AddDate(scheduleDate, startTime, endTime, emplayeeId);
+            this.Close();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

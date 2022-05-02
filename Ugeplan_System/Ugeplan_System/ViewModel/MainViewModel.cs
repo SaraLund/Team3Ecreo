@@ -52,7 +52,7 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddDate(string day, DateTime scheduleDate, string startTime, string endTime, int employeeId)
+        public void AddDate(DateTime scheduleDate, string startTime, string endTime, int employeeId)
         {
             Dvm.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId));
             dr.AddDate(scheduleDate, startTime, endTime, employeeId);

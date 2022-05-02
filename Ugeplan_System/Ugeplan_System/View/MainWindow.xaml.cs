@@ -36,8 +36,8 @@ namespace Ugeplan_System.View
 
         private void AddDateButton_Click(object sender, RoutedEventArgs e)
         {
-            //var AddDateWindow = new AddDateWindow();
-            //AddDateWindow.Show();
+            var AddDateWindow = new AddDate(Mvm);
+            AddDateWindow.Show();
         }
 
         private void IdScheduleButton_Click(object sender, RoutedEventArgs e)
