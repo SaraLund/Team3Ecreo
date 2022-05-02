@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="440"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,10,0,360" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image x:Name="ecreo_png" Margin="35,0,35,0" Grid.RowSpan="2" Grid.Column="1" Source="/ecreo.png"></Image>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button x:Name="WeekScheduleButton" Content="Ugeplan" Margin="50,125,50,265" Click="WeekScheduleButton_Click"/>
+            <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,50,195" Click="AddDateButton_Click"/>
+            <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="50,270,50,120" Click="IdScheduleButton_Click"/>
+
+        </Grid>
     </Grid>
 </Window>

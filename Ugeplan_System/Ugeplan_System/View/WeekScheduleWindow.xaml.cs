@@ -24,13 +24,7 @@ namespace Ugeplan_System.View
     {
         // MainViewModel mvm = MainViewModel.Mvm;
         EmployeeViewModel evm = new EmployeeViewModel();
-        private MainViewModel mvm;
-
-        public MainViewModel Mvm
-        {
-            get { return mvm; }
-            set { mvm = value; }
-        }
+        public MainViewModel Mvm { get; set; }
 
         public int Week { get; set; }
         public DateTime Day { get; set; }
@@ -38,9 +32,9 @@ namespace Ugeplan_System.View
 
 
 
-        public WeekScheduleWindow()
+        public WeekScheduleWindow(MainViewModel mvm)
         {
-            Mvm = new MainViewModel();
+            Mvm = mvm;
             InitializeComponent();
             Week = ISOWeek.GetWeekOfYear(DateTime.Now);
             Year = DateTime.Now.Year;
@@ -56,6 +50,11 @@ namespace Ugeplan_System.View
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
             FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
             
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void NextWeekButton_Click(object sender, RoutedEventArgs e)
@@ -119,35 +118,35 @@ namespace Ugeplan_System.View
         private void MondayButton_Click(object sender, RoutedEventArgs e)
         {
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
-            var DayWindow = new DateScheduleWindow(Day, mvm);
+            var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
 
         private void TuesdayButton_Click(object sender, RoutedEventArgs e)
         {
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
-            var DayWindow = new DateScheduleWindow(Day, mvm);
+            var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
 
         private void WednsdayButton_Click(object sender, RoutedEventArgs e)
         {
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
-            var DayWindow = new DateScheduleWindow(Day, mvm);
+            var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
 
         private void ThursdayButton_Click(object sender, RoutedEventArgs e)
         {
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
-            var DayWindow = new DateScheduleWindow(Day, mvm);
+            var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
 
         private void FridayButton_Click(object sender, RoutedEventArgs e)
         {
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
-            var DayWindow = new DateScheduleWindow(Day, mvm);
+            var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
     }
