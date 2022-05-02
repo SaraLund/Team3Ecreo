@@ -23,5 +23,11 @@ namespace Ugeplan_System.View
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            AddDate ad = new AddDate();
+            ad.Show();
+        }
     }
 }
