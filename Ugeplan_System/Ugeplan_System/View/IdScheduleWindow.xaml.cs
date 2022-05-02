@@ -40,7 +40,7 @@ namespace Ugeplan_System.View
                 {
                     ListBoxItem listBoxItem = new ListBoxItem();
                     listBoxItem.FontSize = 30;
-                    listBoxItem.Content = evm.Name + ": " + d.Day + " d " + d.ScheduleDate + " " + d.StartTime + " - " + d.EndTime;
+                    listBoxItem.Content = evm.Name + ": " + d.Day + " d " + d.ScheduleDate.ToShortDateString() + " " + d.StartTime + " - " + d.EndTime;
                     listBox.Items.Add(listBoxItem);
                 }
             }

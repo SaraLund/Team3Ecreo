@@ -42,8 +42,8 @@ namespace Ugeplan_System.View
 
         private void IdScheduleButton_Click(object sender, RoutedEventArgs e)
         {
-            //var IdWindow = new IdScheduleWindow();
-            //IdWindow.Show();
+            var IdWindow = new IdScheduleWindow(Mvm);
+            IdWindow.Show();
         }
     }
 }
