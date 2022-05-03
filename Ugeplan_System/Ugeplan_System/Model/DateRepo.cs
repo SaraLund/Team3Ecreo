@@ -25,7 +25,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT DateId, ThisDate, StartTime, EndTime, EmployeeId FROM DateTable", conn);
+                SqlCommand command = new SqlCommand("SELECT DateId, ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome FROM DateTable", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -37,6 +37,15 @@ namespace Ugeplan_System.Model
                         date.StartTime = reader["StartTime"].ToString();
                         date.EndTime = reader["EndTime"].ToString();
                         date.EmployeeId = int.Parse(reader["EmployeeId"].ToString());
+                        if (reader["WorkFromHome"].ToString() == "True")
+                        {
+                            date.WorkFromhome = true;
+                        }
+                        else
+                        {
+                            date.WorkFromhome = false;
+                        }
+                        
 
                         dates.Add(date);
                     }
@@ -44,7 +53,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddDate(DateTime date, string start, string end, int employeeId)
+        public void AddDate(DateTime date, string start, string end, int employeeId, bool workFromHome)
         {
             Date newDate = new Date();
             newDate.DateId = dates.Count;
@@ -52,18 +61,27 @@ namespace Ugeplan_System.Model
             newDate.StartTime = start;
             newDate.EndTime = end;
             newDate.EmployeeId = employeeId;
+            newDate.WorkFromhome = workFromHome;
 
             dates.Add(newDate);
 
             using(SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.DateTable(ThisDate, StartTime, EndTime, EmployeeId)" +
-                                                    "VALUES (@thisDate, @startTime, @endTime, @employeeId)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.DateTable(ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome)" +
+                                                    "VALUES (@thisDate, @startTime, @endTime, @employeeId, @workFromHome)", conn);
                 command.Parameters.Add("@thisDate", System.Data.SqlDbType.DateTime2).Value = newDate.ScheduleDate;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = newDate.StartTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = newDate.EndTime;
                 command.Parameters.Add("@employeeId", System.Data.SqlDbType.Int).Value = newDate.EmployeeId;
+                if (newDate.WorkFromhome)
+                {
+                    command.Parameters.Add("@workFromHome", System.Data.SqlDbType.Bit).Value = 1;
+                }
+                else
+                {
+                    command.Parameters.Add("@workFromHome", System.Data.SqlDbType.Bit).Value = 0;
+                }
                 command.ExecuteNonQuery();
             }
         }

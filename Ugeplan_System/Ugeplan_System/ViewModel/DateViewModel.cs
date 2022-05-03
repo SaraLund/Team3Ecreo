@@ -12,18 +12,20 @@ namespace Ugeplan_System.ViewModel
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public int EmployeeId { get; set; }
+        public bool WorkFromHome { get; set; }
 
         public DateViewModel()
         {
 
         }
 
-        public DateViewModel(DateTime scheduleDate, string startTime, string endTime, int employeeId)
+        public DateViewModel(DateTime scheduleDate, string startTime, string endTime, int employeeId, bool workFromHome)
         {
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
             EmployeeId = employeeId;
+            WorkFromHome = workFromHome;
         }
 
         public override string ToString()

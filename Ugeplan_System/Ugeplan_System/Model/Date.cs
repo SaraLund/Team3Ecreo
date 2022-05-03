@@ -13,17 +13,19 @@ namespace Ugeplan_System.Model
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public int EmployeeId { get; set; }
+        public bool WorkFromhome { get; set; }
 
         public Date()
         {
 
         }
 
-        public Date( DateTime scheduleDate, string startTime, string endTime)
+        public Date( DateTime scheduleDate, string startTime, string endTime, bool workFromHome)
         {
             ScheduleDate = scheduleDate;
             StartTime = startTime;
             EndTime = endTime;
+            WorkFromhome = workFromHome;
         }
 
         public override string ToString()

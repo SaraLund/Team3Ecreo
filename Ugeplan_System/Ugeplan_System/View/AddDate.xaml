@@ -16,17 +16,23 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Image x:Name="ecreo_png" Margin="290,4,290,105" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
+        <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
         <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="ID" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxScheduleDate" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox x:Name="TextBoxScheduleDate" Grid.Row="2" Text="YYYY/MM/DD" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch" GotFocus="TextBoxScheduleDate_GotFocus" LostFocus="TextBoxScheduleDate_LostFocus"></TextBox>
         <Label Grid.Row="2" Content="Dato" Margin="100,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
         <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
         <Label Grid.Row="3" Content="Tid" Margin="100,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
         <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
         <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
-        <Button Grid.Row="4" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+        <Button Grid.Row="5" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+        <CheckBox x:Name="WFHCheckBox" Content="Arbejd hjemmefra" Grid.Row="4" Margin="195,0,0,0" Checked="WFHCheckBox_Checked">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="4" ScaleY="4"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
     </Grid>
 </Window>
