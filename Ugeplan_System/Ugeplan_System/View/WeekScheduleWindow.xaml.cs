@@ -23,8 +23,11 @@ namespace Ugeplan_System.View
     public partial class WeekScheduleWindow : Window
     {
         // MainViewModel mvm = MainViewModel.Mvm;
+        List<EmployeeViewModel> eList = new List<EmployeeViewModel>();
+        List<String> newEList = new List<String>();
         EmployeeViewModel evm = new EmployeeViewModel();
         public MainViewModel Mvm { get; set; }
+        string[] splitArray;
 
         public int Week { get; set; }
         public DateTime Day { get; set; }
@@ -49,7 +52,26 @@ namespace Ugeplan_System.View
             ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
             FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
-            
+            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
+            foreach (EmployeeViewModel evm in mvm.Evm)
+            {
+                if (evm.Dates.Exists(x => x.ScheduleDate.ToShortDateString() == Day.ToShortDateString()))
+                {
+                    eList.Add(evm);
+                    splitArray = evm.Name.Split(' ');
+
+                    newEList.Add(splitArray[0].Substring(0,1) + splitArray[splitArray.Length - 1].Substring(0,1));
+                }
+            }
+            for (int i = 0; i < eList.Count; i++)
+            {
+                Label l = new Label();
+                Ellipse e = new Ellipse();
+                e.Width = 35;
+                e.Height = 35;
+                e.Fill = new SolidColorBrush(Colors.Red);
+                EmployeeListBox.Items.Add(e);
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
