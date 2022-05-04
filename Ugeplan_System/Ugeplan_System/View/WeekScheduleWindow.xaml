@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Margin="0,125,0,26" Grid.Row="1">
+        <Grid Margin="0,125,0,26" Grid.Row="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -26,9 +26,7 @@
                 <RowDefinition Height="224*"></RowDefinition>
             </Grid.RowDefinitions>
             <Button x:Name="MondayButton" Content="Mandag" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="0" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="MondayButton_Click"></Button>
-            <!--<Style TargetType="Label" ></Style>-->
-
-            <ListBox x:Name="EmployeeListBox" Margin="0,3,0,134" Grid.Row="1" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="EmployeeListBox1" Margin="0,3,0,134" Grid.Row="1" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True"/>
@@ -36,16 +34,42 @@
                 </ListBox.ItemsPanel>
             </ListBox>
             <Button x:Name="TuesdayButton" Content="Tirsdag" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="1" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="TuesdayButton_Click"></Button>
+            <ListBox x:Name="EmployeeListBox2" Margin="0,3,0,134" Grid.Row="2" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="1">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Button x:Name="WednsdayButton" Content="Onsdag" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="2" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="WednsdayButton_Click"></Button>
+            <ListBox x:Name="EmployeeListBox3" Margin="0,3,0,134" Grid.Row="3" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="2">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Button x:Name="ThursdayButton" Content="Torsdag" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="3" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="ThursdayButton_Click"></Button>
+            <ListBox x:Name="EmployeeListBox4" Margin="0,3,0,134" Grid.Row="4" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="3">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Button x:Name="FridayButton" Content="Fredag" Margin="4,0,4,0" FontSize="16" Grid.Row="1" Grid.Column="4" Background="Gainsboro" BorderBrush="White" Foreground="Black" Click="FridayButton_Click"></Button>
+            <ListBox x:Name="EmployeeListBox5" Margin="0,3,0,134" Grid.Row="5" Opacity="100" Background="Gainsboro" BorderBrush="Gainsboro" HorizontalAlignment="Center" Width="140" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="4">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
             <Label x:Name="MondayLabel" Content="Row0 column0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="TuesdayLabel" Content="Row0 column1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="WednesdayLabel" Content="Row0 column2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="ThursdayLabel" Content="Row0 column3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="FridayLabel" Content="Row0 column4" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-
         </Grid>
         <Grid Margin="0,10,0,360" Grid.Row="1">
             <Grid.ColumnDefinitions>
