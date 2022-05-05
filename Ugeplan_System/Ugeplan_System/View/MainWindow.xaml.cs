@@ -45,5 +45,11 @@ namespace Ugeplan_System.View
             var IdWindow = new IdScheduleWindow(Mvm);
             IdWindow.Show();
         }
+
+        private void AddProject_Click(object sender, RoutedEventArgs e)
+        {
+            var AddProject = new AddProjectWindow(Mvm);
+            AddProject.Show();
+        }
     }
 }
