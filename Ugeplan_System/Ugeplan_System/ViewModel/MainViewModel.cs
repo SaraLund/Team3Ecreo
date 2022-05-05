@@ -14,10 +14,23 @@ namespace Ugeplan_System.ViewModel
         private static readonly EmployeeRepo er = new EmployeeRepo();
         public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
         private static readonly DateRepo dr = new DateRepo();
+        public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
+        private static readonly MeetingRepo mr = new MeetingRepo();
+        public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
+        private static readonly ProjectRepo pr = new ProjectRepo();
         public MainViewModel()
         {
             GetEmployee(er.GetAllEmployee());
             GetDate(dr.GetAllDates());
+            GetMeeting(mr.GetAllMeeting());
+            GetProject(pr.GetAllProject());
+            GetDatesForEmployee();
+
+            
+        }
+
+        public void GetDatesForEmployee()
+        {
             for (int i = 0; i < Evm.Count; i++)
             {
                 for (int j = 0; j < Dvm.Count; j++)
@@ -30,6 +43,7 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
+        // ----------------------------------EMPLOYEE---------------------------------- \\
         public void GetEmployee(List<Employee> employees)
         {
             foreach (Employee e in employees)
@@ -44,6 +58,8 @@ namespace Ugeplan_System.ViewModel
             er.AddEmployee(name, jobPosition, mail, phoneNumber);
         }
 
+        // ----------------------------------DATE---------------------------------- \\
+
         public void GetDate(List<Date> dates)
         {
             foreach (Date d in dates)
@@ -57,6 +73,38 @@ namespace Ugeplan_System.ViewModel
             Dvm.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
             dr.AddDate(scheduleDate, startTime, endTime, employeeId, workFromHome);
             Evm.First(x => x.EmployeeId == employeeId).Dates.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
+        }
+
+        // ----------------------------------MEETING---------------------------------- \\
+
+        public void GetMeeting(List<Meeting> meetings)
+        {
+            foreach (Meeting m in meetings)
+            {
+                Meetvm.Add(new MeetingViewModel(m.MeetingDescription, m.StartTime, m.EndTime, m.MeetingDate, m.OnlineMeeting));
+            }
+        }
+
+        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting)
+        {
+            Meetvm.Add(new MeetingViewModel(meetingDescription, startTime, endTime, meetingDate, onlineMeeting));
+            mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting);
+        }
+
+        // ----------------------------------PROJECT---------------------------------- \\
+
+        public void GetProject(List<Project> projects)
+        {
+            foreach (Project p in projects)
+            {
+                Pvm.Add(new ProjectViewModel(p.ProjectName, p.Description, p.ExpectedResults, p.StartTime, p.EndTime, p.Priority, p.Status));
+            }
+        }
+
+        public void AddProject(string projectName, string description, string expectedResults, string startTime, string endTime, int priority, string status)
+        {
+            Pvm.Add(new ProjectViewModel(projectName, description, expectedResults, startTime, endTime, priority, status));
+            pr.Addproject(projectName, description, expectedResults, startTime, endTime, priority, status);
         }
 
     }
