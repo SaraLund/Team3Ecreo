@@ -21,7 +21,7 @@ namespace Ugeplan_System.ViewModel
 
         }
 
-        public MeetingViewModel(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting)
+        public MeetingViewModel(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees)
         {
             MeetingDescription = meetingDescription;
             StartTime = startTime;

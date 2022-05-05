@@ -53,7 +53,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting)
+        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
         {
             Meeting m = new Meeting();
             m.MeetingId = meetings.Count;
@@ -62,6 +62,7 @@ namespace Ugeplan_System.Model
             m.EndTime = endTime;
             m.MeetingDate = meetingDate;
             m.OnlineMeeting = onlineMeeting;
+            m.Employees = employees;
 
             meetings.Add(m);
 
@@ -105,7 +106,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void UpdateMeeting(int meetingId, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting)
+        public void UpdateMeeting(int meetingId, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
         {
             if (meetings.Exists(m => m.MeetingId == meetingId))
             {
@@ -113,17 +114,29 @@ namespace Ugeplan_System.Model
                 temp.MeetingDescription = meetingDescription;
                 temp.StartTime = startTime;
                 temp.EndTime = endTime;
+                temp.MeetingDate = meetingDate;
+                temp.OnlineMeeting = onlineMeeting;
+                temp.Employees = employees;
 
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("UPDATE Meeting SET MeetingDescription = @meetingDescription, StartTime = @startTime, EndTime = @endTime" +
+                    SqlCommand command = new SqlCommand("UPDATE Meeting SET MeetingDescription = @meetingDescription, StartTime = @startTime, EndTime = @endTime, MeetingDate = @meetingDate, OnlineMeeting = @onlineMeeting" +
                                                         "WHERE MeetingId = @meetingId", conn);
 
                     command.Parameters.Add(@meetingDescription, System.Data.SqlDbType.NVarChar).Value = meetingDescription;
                     command.Parameters.Add(@startTime, System.Data.SqlDbType.NVarChar).Value = startTime;
                     command.Parameters.Add(@endTime, System.Data.SqlDbType.NVarChar).Value = endTime;
+                    command.Parameters.Add("@meetingDate", System.Data.SqlDbType.DateTime2).Value = meetingDate;
+                    if (onlineMeeting)
+                    {
+                        command.Parameters.Add("@onlineMeeting", System.Data.SqlDbType.Bit).Value = 1;
+                    }
+                    else
+                    {
+                        command.Parameters.Add("@onlineMeeting", System.Data.SqlDbType.Bit).Value = 0;
+                    }
 
                     command.ExecuteNonQuery();
                 }
