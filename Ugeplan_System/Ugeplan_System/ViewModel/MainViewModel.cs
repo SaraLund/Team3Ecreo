@@ -97,14 +97,14 @@ namespace Ugeplan_System.ViewModel
         {
             foreach (Project p in projects)
             {
-                Pvm.Add(new ProjectViewModel(p.ProjectName, p.Description, p.ExpectedResults, p.StartTime, p.EndTime, p.Priority, p.Status));
+                Pvm.Add(new ProjectViewModel(p.ProjectName, p.Description, p.ExpectedResults, p.StartTime, p.EndTime, p.ProjectPriority, p.ProjectStatus));
             }
         }
 
-        public void AddProject(string projectName, string description, string expectedResults, string startTime, string endTime, int priority, string status)
+        public void AddProject(string projectName, string description, string expectedResults, string startTime, string endTime, int projectPriority, string projectStatus)
         {
-            Pvm.Add(new ProjectViewModel(projectName, description, expectedResults, startTime, endTime, priority, status));
-            pr.Addproject(projectName, description, expectedResults, startTime, endTime, priority, status);
+            Pvm.Add(new ProjectViewModel(projectName, description, expectedResults, startTime, endTime, projectPriority, projectStatus));
+            pr.Addproject(projectName, description, expectedResults, startTime, endTime, projectPriority, projectStatus);
         }
 
     }
