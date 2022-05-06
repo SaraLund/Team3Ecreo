@@ -133,9 +133,9 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddProject(int projectId, string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
+        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
         {
-            Pvm.Add(new ProjectViewModel(projectId, projectName, description, startTime, endTime, priority, employees));
+            Pvm.Add(new ProjectViewModel(Pvm.Count + 1, projectName, description, startTime, endTime, priority, employees));
             List<Employee> newEmployees = new List<Employee>();
             Employee temp = new Employee();
             for (int i = 0; i < employees.Count; i++)

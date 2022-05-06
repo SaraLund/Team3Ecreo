@@ -39,6 +39,19 @@ namespace Ugeplan_System.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string projectName = TextBoxID.Text;
+            string description = TextBoxDescription.Text;
+            string startTime = TextBoxStartTime.Text;
+            string endTime = TextBoxEndTime.Text;
+            int priority = int.Parse(TextBoxPriority.Text);
+
+            List<EmployeeViewModel> employees = new();
+
+
+            Mvm.AddProject();
+
+
+
             this.Close();
         }
     }
