@@ -11,9 +11,11 @@ namespace Ugeplan_System.Model
     {
         private List<Project> projects = new List<Project>();
         private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
+        private List<Employee> employees1 = new();
 
-        public ProjectRepo()
+        public ProjectRepo(List<Employee> employees)
         {
+            employees1 = employees;
             InitializeRepo();
         }
 
@@ -25,7 +27,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT ProjectId, ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime FROM Project", conn);
+                SqlCommand command = new SqlCommand("SELECT ProjectId, ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime, Initials FROM Project", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -38,7 +40,13 @@ namespace Ugeplan_System.Model
                         project.Priority = int.Parse(reader["ProjectPriority"].ToString());
                         project.StartTime = reader["StartTime"].ToString();
                         project.EndTime = reader["EndTime"].ToString();
-
+                        string[] temp = reader["Initials"].ToString().Split(';');
+                        List<Employee> employees = new();
+                        foreach (string s in temp)
+                        {
+                            employees.Add(employees1.Find(e => e.Initials == s));
+                        }
+                        project.Employees = employees;
                         projects.Add(project);
                     }
                 }
@@ -53,13 +61,21 @@ namespace Ugeplan_System.Model
 
             using(SqlConnection conn = new SqlConnection(connStr))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Project(ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime) " +
-                                                    "VALUES (@projectName, @projectDescription, @expectedResults, @projectPriority, @projectStatus, @startTime, @endTime)", conn);
+                conn.Open();
+                SqlCommand command = new SqlCommand("INSERT INTO Project(ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime, Initials) " +
+                                                    "VALUES (@projectName, @projectDescription, @projectPriority, @startTime, @endTime, @initials)", conn);
                 command.Parameters.Add("@projectName", System.Data.SqlDbType.NVarChar).Value = projectName;
                 command.Parameters.Add("@projectDescription", System.Data.SqlDbType.NVarChar).Value = description;
                 command.Parameters.Add("@projectPriority", System.Data.SqlDbType.Int).Value = priority;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = startTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = endTime;
+                string temp = "";
+                foreach (Employee e in newProject.Employees)
+                {
+                    temp += e.Initials + ";";
+                }
+                temp.Remove(temp.Length - 1);
+                command.Parameters.Add("@initials", System.Data.SqlDbType.NVarChar).Value = temp;
 
                 command.ExecuteNonQuery();
             }
@@ -100,7 +116,7 @@ namespace Ugeplan_System.Model
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("UPDATE Project SET ProjectName = @projectName, ProjectDescription = @projectDescription, ProjectPriority = @projectPriority, StartTime = @startTime, EndTime = @endTime" +
+                    SqlCommand command = new SqlCommand("UPDATE Project SET ProjectName = @projectName, ProjectDescription = @projectDescription, ProjectPriority = @projectPriority, StartTime = @startTime, EndTime = @endTime, Initials = @initials" +
                                                         "WHERE ProjectId = @projectId", conn);
 
                     command.Parameters.Add("@projectName", System.Data.SqlDbType.NVarChar).Value = projectName;
@@ -109,6 +125,12 @@ namespace Ugeplan_System.Model
                     command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = startTime;
                     command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = endTime;
                     command.Parameters.Add("@projectId", System.Data.SqlDbType.Int).Value = projectId;
+                    string tempString = "";
+                    foreach (Employee e in temp.Employees)
+                    {
+                        tempString += e.Initials;
+                    }
+                    command.Parameters.Add("@initials", System.Data.SqlDbType.NVarChar).Value = tempString;
 
                     command.ExecuteNonQuery();
                 }

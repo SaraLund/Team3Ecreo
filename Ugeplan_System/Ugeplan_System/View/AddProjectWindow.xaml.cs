@@ -44,14 +44,19 @@ namespace Ugeplan_System.View
             string startTime = TextBoxStartTime.Text;
             string endTime = TextBoxEndTime.Text;
             int priority = int.Parse(TextBoxPriority.Text);
+            string[] splitArray;
+            splitArray = TextBoxEmployees.Text.Split(';');
 
             List<EmployeeViewModel> employees = new();
+            foreach (string s in splitArray)
+            {
+                if(Mvm.Evm.Any(e => e.Name == s))
+                {
+                    employees.Add(Mvm.Evm.First(e => e.Name == s));
+                }
+            }
 
-
-            Mvm.AddProject();
-
-
-
+            Mvm.AddProject(projectName, description, startTime, endTime, priority, employees);
             this.Close();
         }
     }

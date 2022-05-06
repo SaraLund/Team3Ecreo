@@ -17,7 +17,7 @@ namespace Ugeplan_System.ViewModel
         public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
         private static readonly MeetingRepo mr = new MeetingRepo();
         public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
-        private static readonly ProjectRepo pr = new ProjectRepo();
+        private static readonly ProjectRepo pr = new ProjectRepo(er.GetAllEmployee());
         public MainViewModel()
         {
             GetEmployee(er.GetAllEmployee());
@@ -46,13 +46,13 @@ namespace Ugeplan_System.ViewModel
         {
             foreach (Employee e in employees)
             {
-                Evm.Add(new EmployeeViewModel(e.EmployeeId, e.Name, e.JobPosition, e.Mail, e.PhoneNumber));
+                Evm.Add(new EmployeeViewModel(e.EmployeeId, e.Name, e.JobPosition, e.Mail, e.PhoneNumber, e.Initials));
             }
         }
 
-        public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
+        public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber, string initials)
         {
-            Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber));
+            Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber, initials));
             er.AddEmployee(name, jobPosition, mail, phoneNumber);
         }
 
@@ -127,6 +127,7 @@ namespace Ugeplan_System.ViewModel
                     temp.Mail = p.Employees[i].Mail;
                     temp.Name = p.Employees[i].Name;
                     temp.PhoneNumber = p.Employees[i].PhoneNumber;
+                    temp.Initials = p.Employees[i].Initials;
                     newEmployees.Add(temp);
                 }
                 Pvm.Add(new ProjectViewModel(p.ProjectId ,p.ProjectName, p.Description, p.StartTime, p.EndTime, p.Priority, newEmployees));
@@ -145,6 +146,7 @@ namespace Ugeplan_System.ViewModel
                 temp.Mail = employees[i].Mail;
                 temp.Name = employees[i].Name;
                 temp.PhoneNumber = employees[i].PhoneNumber;
+                temp.Initials = employees[i].Initials;
                 newEmployees.Add(temp);
             }
             pr.AddProject(projectName, description, startTime, endTime, priority, newEmployees);

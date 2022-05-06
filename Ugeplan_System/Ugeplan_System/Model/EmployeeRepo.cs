@@ -38,6 +38,8 @@ namespace Ugeplan_System.Model
                         employee.JobPosition = reader["JobPosition"].ToString();
                         employee.Mail = reader["Mail"].ToString();
                         employee.PhoneNumber = reader["PhoneNumber"].ToString();
+                        string[] temp = employee.Name.Split(' ');
+                        employee.Initials = temp[0].Substring(0, 1) + temp[temp.Length - 1].Substring(0, 1);
 
                         employees.Add(employee);
                     }

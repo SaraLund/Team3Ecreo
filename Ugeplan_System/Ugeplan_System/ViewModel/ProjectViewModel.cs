@@ -14,7 +14,7 @@ namespace Ugeplan_System.ViewModel
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public int Priority { get; set; }
-        public List<EmployeeViewModel> Employees { get; set; }
+        public List<EmployeeViewModel> Employees { get; set; } = new();
 
         public ProjectViewModel(int projectId, string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
         {

@@ -14,7 +14,7 @@ namespace Ugeplan_System.Model
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public int Priority { get; set; }
-        public List<Employee> Employees { get; set; }
+        public List<Employee> Employees { get; set; } = new();
 
         public Project(int projectId, string projectName, string description, string startTime, string endTime, int priority, List<Employee> employees)
         {
