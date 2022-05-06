@@ -20,27 +20,27 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+
         </Grid.RowDefinitions>
         <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
         <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+        
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="Navn" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxResult" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
-        <Label Grid.Row="2" Content="Forventet Resultat" Margin="25,0,618,0" FontSize="15" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
-        <Label Grid.Row="3" Content="Dato" Margin="50,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
-        <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
-        <TextBox x:Name="TextBoxPriority" Grid.Row="4" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
-        <Label Grid.Row="4" Content="Prioritet" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxStatus" Grid.Row="5" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
-        <Label Grid.Row="5" Content="Status" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxDescription" Grid.Row="6" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
-        <Label Grid.Row="6" Content="Beskrivelse" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxEmployees" Grid.Row="8" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
-        <Label Grid.Row="8" Content="Employees" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
-        <Button Grid.Row="10" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+        
+        <TextBox x:Name="TextBoxStartTime" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
+        <Label Grid.Row="2" Content="Dato" Margin="50,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="2" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
+        <TextBox x:Name="TextBoxEndTime" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
+        
+        <TextBox x:Name="TextBoxPriority" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
+        <Label Grid.Row="3" Content="Prioritet" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
+        
+        <TextBox x:Name="TextBoxDescription" Grid.Row="4" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
+        <Label Grid.Row="4" Content="Beskrivelse" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
+        
+        <TextBox x:Name="TextBoxEmployees" Grid.Row="6" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
+        <Label Grid.Row="6" Content="Employees" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
+        <Button Grid.Row="8" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
     </Grid>
 </Window>

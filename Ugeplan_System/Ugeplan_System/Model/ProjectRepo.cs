@@ -25,7 +25,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT ProjectId, ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime FROM Project");
+                SqlCommand command = new SqlCommand("SELECT ProjectId, ProjectName, ProjectDescription, ProjectPriority, StartTime, EndTime FROM Project", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {

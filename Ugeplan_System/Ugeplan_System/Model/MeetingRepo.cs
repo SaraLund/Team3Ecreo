@@ -12,7 +12,6 @@ namespace Ugeplan_System.Model
         List<Meeting> meetings = new List<Meeting>();
         private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
 
-
         public MeetingRepo()
         {
             InitializeRepo();
@@ -26,7 +25,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room", conn);
+                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room FROM Meeting", conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -34,7 +33,7 @@ namespace Ugeplan_System.Model
                     {
                         meeting = new Meeting();
                         meeting.MeetingId = int.Parse(reader["MeetingId"].ToString());
-                        meeting.MeetingDescription = reader["Description"].ToString();
+                        meeting.MeetingDescription = reader["MeetingDescription"].ToString();
                         meeting.StartTime = reader["StartTime"].ToString();
                         meeting.EndTime = reader["EndTime"].ToString();
                         meeting.MeetingDate = DateTime.Parse(reader["MeetingDate"].ToString());
@@ -162,5 +161,4 @@ namespace Ugeplan_System.Model
             return meetings.Find(m => m.MeetingId == meetingId);
         }
     }
-}
 }

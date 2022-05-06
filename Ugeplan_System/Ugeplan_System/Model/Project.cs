@@ -34,7 +34,7 @@ namespace Ugeplan_System.Model
 
         public override string ToString()
         {
-            return $"{ProjectName} : {Description} : {ExpectedResults} : {StartTime} : {EndTime} : {Priority} : {Status}";
+            return $"{ProjectName} : {Description} : {StartTime} : {EndTime} : {Priority}";
         }
     }
 }
