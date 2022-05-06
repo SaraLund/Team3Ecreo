@@ -9,6 +9,7 @@ namespace Ugeplan_System.Model
     public class Meeting
     {
         public int MeetingId { get; set; }
+        public string Room { get; set; }
         public string MeetingDescription { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
@@ -21,8 +22,9 @@ namespace Ugeplan_System.Model
 
         }
 
-        public Meeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
+        public Meeting(string room, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
         {
+            Room = room;
             MeetingDescription = meetingDescription;
             StartTime = startTime;
             EndTime = endTime;
@@ -33,7 +35,7 @@ namespace Ugeplan_System.Model
 
         public override string ToString()
         {
-            return $"{MeetingDescription}: {MeetingDate} - {StartTime} : {EndTime} : {OnlineMeeting}";
+            return $"{Room} : {MeetingDescription}: {MeetingDate} - {StartTime} : {EndTime} : {OnlineMeeting}";
         }
     }
 }

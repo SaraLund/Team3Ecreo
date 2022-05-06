@@ -91,13 +91,13 @@ namespace Ugeplan_System.ViewModel
                     temp.PhoneNumber = m.Employees[i].PhoneNumber;
                     newEmployees.Add(temp);
                 }
-                Meetvm.Add(new MeetingViewModel(m.MeetingDescription, m.StartTime, m.EndTime, m.MeetingDate, m.OnlineMeeting, newEmployees));
+                Meetvm.Add(new MeetingViewModel(m.Room, m.MeetingDescription, m.StartTime, m.EndTime, m.MeetingDate, m.OnlineMeeting, newEmployees));
             }
         }
 
-        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees)
+        public void AddMeeting(string room, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees)
         {
-            Meetvm.Add(new MeetingViewModel(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, employees));
+            Meetvm.Add(new MeetingViewModel(room, meetingDescription, startTime, endTime, meetingDate, onlineMeeting, employees));
             List<Employee> newEmployees = new List<Employee>();
             Employee temp = new Employee();
             for (int i = 0; i < employees.Count; i++)
@@ -109,7 +109,7 @@ namespace Ugeplan_System.ViewModel
                 temp.PhoneNumber = employees[i].PhoneNumber;
                 newEmployees.Add(temp);
             }
-            mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, newEmployees);
+            mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, newEmployees, room);
         }
 
         // ----------------------------------PROJECT---------------------------------- \\
@@ -129,13 +129,13 @@ namespace Ugeplan_System.ViewModel
                     temp.PhoneNumber = p.Employees[i].PhoneNumber;
                     newEmployees.Add(temp);
                 }
-                Pvm.Add(new ProjectViewModel(p.ProjectName, p.Description, p.ExpectedResults, p.StartTime, p.EndTime, p.ProjectPriority, p.ProjectStatus, newEmployees));
+                Pvm.Add(new ProjectViewModel(p.ProjectName, p.Description, p.StartTime, p.EndTime, p.ProjectPriority, newEmployees));
             }
         }
 
-        public void AddProject(string projectName, string description, string expectedResults, string startTime, string endTime, int priority, string status, List<EmployeeViewModel> employees)
+        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
         {
-            Pvm.Add(new ProjectViewModel(projectName, description, expectedResults, startTime, endTime, priority, status, employees));
+            Pvm.Add(new ProjectViewModel(projectName, description, startTime, endTime, priority, employees));
             List<Employee> newEmployees = new List<Employee>();
             Employee temp = new Employee();
             for (int i = 0; i < employees.Count; i++)
@@ -147,7 +147,7 @@ namespace Ugeplan_System.ViewModel
                 temp.PhoneNumber = employees[i].PhoneNumber;
                 newEmployees.Add(temp);
             }
-            pr.Addproject(projectName, description, expectedResults, startTime, endTime, priority, status, newEmployees);
+            pr.Addproject(projectName, description, startTime, endTime, priority, newEmployees);
         }
 
     }

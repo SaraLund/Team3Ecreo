@@ -26,7 +26,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting", conn);
+                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room", conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -46,6 +46,7 @@ namespace Ugeplan_System.Model
                         {
                             meeting.OnlineMeeting = false;
                         }
+                        meeting.Room = reader["Room"].ToString();
 
                         meetings.Add(meeting);
                     }
@@ -53,7 +54,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
+        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees, string room)
         {
             Meeting m = new Meeting();
             m.MeetingId = meetings.Count;
@@ -63,14 +64,15 @@ namespace Ugeplan_System.Model
             m.MeetingDate = meetingDate;
             m.OnlineMeeting = onlineMeeting;
             m.Employees = employees;
+            m.Room = room;
 
             meetings.Add(m);
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.Meeting(MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting)" +
-                                                    "VALUES (@meetingDescription, @startTime, @endTime, @meetingDate, @onlineMeeting)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.Meeting(MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room)" +
+                                                    "VALUES (@meetingDescription, @startTime, @endTime, @meetingDate, @onlineMeeting, @room)", conn);
                 command.Parameters.Add("@meetingDescription", System.Data.SqlDbType.NVarChar).Value = m.MeetingDescription;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = m.StartTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = m.EndTime;
@@ -83,6 +85,7 @@ namespace Ugeplan_System.Model
                 {
                     command.Parameters.Add("@onlineMeeting", System.Data.SqlDbType.Bit).Value = 0;
                 }
+                command.Parameters.Add("@room", System.Data.SqlDbType.NVarChar).Value = m.Room;
                 command.ExecuteNonQuery();
             }
         }
@@ -106,7 +109,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void UpdateMeeting(int meetingId, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees)
+        public void UpdateMeeting(int meetingId, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees, string room)
         {
             if (meetings.Exists(m => m.MeetingId == meetingId))
             {
@@ -117,12 +120,13 @@ namespace Ugeplan_System.Model
                 temp.MeetingDate = meetingDate;
                 temp.OnlineMeeting = onlineMeeting;
                 temp.Employees = employees;
+                temp.Room = room;
 
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("UPDATE Meeting SET MeetingDescription = @meetingDescription, StartTime = @startTime, EndTime = @endTime, MeetingDate = @meetingDate, OnlineMeeting = @onlineMeeting" +
+                    SqlCommand command = new SqlCommand("UPDATE Meeting SET MeetingDescription = @meetingDescription, StartTime = @startTime, EndTime = @endTime, MeetingDate = @meetingDate, OnlineMeeting = @onlineMeeting, Room = @room" +
                                                         "WHERE MeetingId = @meetingId", conn);
 
                     command.Parameters.Add(@meetingDescription, System.Data.SqlDbType.NVarChar).Value = meetingDescription;
@@ -137,6 +141,7 @@ namespace Ugeplan_System.Model
                     {
                         command.Parameters.Add("@onlineMeeting", System.Data.SqlDbType.Bit).Value = 0;
                     }
+                    command.Parameters.Add(room, System.Data.SqlDbType.NVarChar).Value = room;
 
                     command.ExecuteNonQuery();
                 }
