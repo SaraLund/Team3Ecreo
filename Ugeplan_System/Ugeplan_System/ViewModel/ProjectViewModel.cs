@@ -11,23 +11,19 @@ namespace Ugeplan_System.ViewModel
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
         public string Description { get; set; }
-        public string ExpectedResults { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public int Priority { get; set; }
-        public string Status { get; set; }
         public List<EmployeeViewModel> Employees { get; set; }
 
-        public ProjectViewModel(int projectId, string projectName, string description, string expectedResults, string startTime, string endTime, int priority, string status, List<EmployeeViewModel> employees)
+        public ProjectViewModel(int projectId, string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
         {
             ProjectId = projectId;
             ProjectName = projectName;
             Description = description;
-            ExpectedResults = expectedResults;
             StartTime = startTime;
             EndTime = endTime;
             Priority = priority;
-            Status = status;
             Employees = employees;
         }
 
@@ -38,7 +34,7 @@ namespace Ugeplan_System.ViewModel
 
         public override string ToString()
         {
-            return $"{ProjectName} : {Description} : {ExpectedResults} : {StartTime} : {EndTime} : {Priority} : {Status}";
+            return $"{ProjectName} : {Description} : {StartTime} : {EndTime} : {Priority}";
         }
     }
 }
