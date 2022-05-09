@@ -29,6 +29,7 @@
             <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,50,195" Click="AddDateButton_Click"/>
             <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="50,270,50,120" Click="IdScheduleButton_Click"/>
             <Button x:Name="AddProject" Content="Opret Projekt" Margin="420,340,50,50" Click="AddProject_Click"/>
+            <Button x:Name="AddMeeting" Content="Opret Møde" Margin="50,340,420,50" Click="AddMeetimg_Click"/>
         </Grid>
     </Grid>
 </Window>
