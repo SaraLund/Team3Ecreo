@@ -47,7 +47,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddEmployee(string name, string jobPosition, string mail, string phoneNumber)
+        public void AddEmployee(string name, string jobPosition, string mail, string phoneNumber, string initials)
         {
             Employee e = new Employee();
             e.EmployeeId = employees.Count;
@@ -55,6 +55,7 @@ namespace Ugeplan_System.Model
             e.JobPosition = jobPosition;
             e.Mail = mail;
             e.PhoneNumber = phoneNumber;
+            e.Initials = initials;
 
             employees.Add(e);
 

@@ -53,7 +53,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<Employee> employees)
+        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<Employee> employees, string names)
         {
             Project newProject = new Project(projects.Count + 1, projectName, description, startTime, endTime, priority, employees);
 
@@ -70,12 +70,14 @@ namespace Ugeplan_System.Model
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = startTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = endTime;
                 string temp = "";
-                foreach (Employee e in newProject.Employees)
-                {
-                    temp += e.Initials + ";";
-                }
-                temp.Remove(temp.Length - 1);
-                command.Parameters.Add("@initials", System.Data.SqlDbType.NVarChar).Value = temp;
+                //foreach (Employee e in newProject.Employees)
+                //{
+                //    temp += e.Initials + ";";
+                //}
+                //temp.Remove(temp.Length - 1);
+
+
+                command.Parameters.Add("@initials", System.Data.SqlDbType.NVarChar).Value = names;
 
                 command.ExecuteNonQuery();
             }

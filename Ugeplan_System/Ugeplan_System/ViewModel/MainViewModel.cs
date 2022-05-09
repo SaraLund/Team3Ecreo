@@ -53,7 +53,7 @@ namespace Ugeplan_System.ViewModel
         public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber, string initials)
         {
             Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber, initials));
-            er.AddEmployee(name, jobPosition, mail, phoneNumber);
+            er.AddEmployee(name, jobPosition, mail, phoneNumber, initials);
         }
 
         // ----------------------------------DATE---------------------------------- \\
@@ -134,7 +134,7 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees)
+        public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees, string names)
         {
             Pvm.Add(new ProjectViewModel(Pvm.Count + 1, projectName, description, startTime, endTime, priority, employees));
             List<Employee> newEmployees = new List<Employee>();
@@ -149,7 +149,7 @@ namespace Ugeplan_System.ViewModel
                 temp.Initials = employees[i].Initials;
                 newEmployees.Add(temp);
             }
-            pr.AddProject(projectName, description, startTime, endTime, priority, newEmployees);
+            pr.AddProject(projectName, description, startTime, endTime, priority, newEmployees, names);
         }
 
     }

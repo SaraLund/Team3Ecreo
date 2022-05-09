@@ -24,7 +24,7 @@ namespace Ugeplan_System.ViewModel
             JobPosition = jobPosition;
             Mail = mail;
             PhoneNumber = phoneNumber;
-            Initials = Initials;
+            Initials = initials;
         }
 
         public EmployeeViewModel()
