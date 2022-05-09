@@ -54,7 +54,7 @@ namespace Ugeplan_System.View
 
         private void AddMeetimg_Click(object sender, RoutedEventArgs e)
         {
-            var AddMeeting = new AddMeetingWindow();
+            var AddMeeting = new AddMeetingWindow(Mvm);
             AddMeeting.Show();
         }
     }
