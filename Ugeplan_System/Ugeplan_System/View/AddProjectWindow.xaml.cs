@@ -55,6 +55,7 @@ namespace Ugeplan_System.View
                     employees.Add(Mvm.Evm.First(e => e.Name == s));
                 }
             }
+
             string emptyString = "";
             string[] stringArrayAgain;
             foreach (string s in splitArray)
@@ -64,6 +65,7 @@ namespace Ugeplan_System.View
                 emptyString += stringArrayAgain[stringArrayAgain.Length - 1].Substring(0, 1);
                 emptyString += ";";
             }
+
             emptyString = emptyString.Remove(emptyString.Length - 1);
             Mvm.AddProject(projectName, description, startTime, endTime, priority, employees, emptyString);
             this.Close();

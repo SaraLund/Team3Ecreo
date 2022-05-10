@@ -27,7 +27,6 @@ namespace Ugeplan_System.View
 
         public MainViewModel mainViewModel;
 
-
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string Name = SearchTextBox.Text;
@@ -35,10 +34,9 @@ namespace Ugeplan_System.View
             {
                 EmployeeViewModel evm = mainViewModel.Evm.First(x => x.Name == Name);
                 List<DateViewModel> dates = evm.Dates.OrderBy(x => x.ScheduleDate).ToList();
-
                 foreach (DateViewModel d in dates) 
                 {
-                    ListBoxItem listBoxItem = new ListBoxItem();
+                    ListBoxItem listBoxItem = new();
                     listBoxItem.FontSize = 30;
                     listBoxItem.Content = evm.Name + ": " + d.ScheduleDate.DayOfWeek + " d " + d.ScheduleDate.ToShortDateString() + " " + d.StartTime + " - " + d.EndTime + " : " + d.WorkFromHome;
                     listBox.Items.Add(listBoxItem);
