@@ -11,9 +11,11 @@ namespace Ugeplan_System.Model
     {
         List<Meeting> meetings = new List<Meeting>();
         private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
+        private List<Employee> employees;
 
-        public MeetingRepo()
+        public MeetingRepo(List<Employee> employees)
         {
+            this.employees = employees;
             InitializeRepo();
         }
 
@@ -25,7 +27,7 @@ namespace Ugeplan_System.Model
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room FROM Meeting", conn);
+                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room, Initials FROM Meeting", conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -47,13 +49,21 @@ namespace Ugeplan_System.Model
                         }
                         meeting.Room = reader["Room"].ToString();
 
+                        string[] temp = reader["Initials"].ToString().Split(';');
+                        List<Employee> tempEmployees = new();
+                        foreach (string s in temp)
+                        {
+                            tempEmployees.Add(employees.Find(e => e.Initials == s));
+                        }
+                        meeting.Employees = tempEmployees;
+
                         meetings.Add(meeting);
                     }
                 }
             }
         }
 
-        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees, string room)
+        public void AddMeeting(string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<Employee> employees, string room, string initials)
         {
             Meeting m = new Meeting();
             m.MeetingId = meetings.Count;
@@ -70,8 +80,8 @@ namespace Ugeplan_System.Model
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.Meeting(MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room)" +
-                                                    "VALUES (@meetingDescription, @startTime, @endTime, @meetingDate, @onlineMeeting, @room)", conn);
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.Meeting(MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room, Initials)" +
+                                                    "VALUES (@meetingDescription, @startTime, @endTime, @meetingDate, @onlineMeeting, @room, @initials)", conn);
                 command.Parameters.Add("@meetingDescription", System.Data.SqlDbType.NVarChar).Value = m.MeetingDescription;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = m.StartTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = m.EndTime;
@@ -85,6 +95,7 @@ namespace Ugeplan_System.Model
                     command.Parameters.Add("@onlineMeeting", System.Data.SqlDbType.Bit).Value = 0;
                 }
                 command.Parameters.Add("@room", System.Data.SqlDbType.NVarChar).Value = m.Room;
+                command.Parameters.Add("@initials", System.Data.SqlDbType.NVarChar).Value = initials;
                 command.ExecuteNonQuery();
             }
         }

@@ -69,7 +69,7 @@ namespace Ugeplan_System.Model
                 command.Parameters.Add("@projectPriority", System.Data.SqlDbType.Int).Value = priority;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = startTime;
                 command.Parameters.Add("@endTime", System.Data.SqlDbType.NVarChar).Value = endTime;
-                string temp = "";
+                //string temp = "";
                 //foreach (Employee e in newProject.Employees)
                 //{
                 //    temp += e.Initials + ";";
