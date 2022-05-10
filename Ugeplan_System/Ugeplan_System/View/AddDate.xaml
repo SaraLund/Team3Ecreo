@@ -29,10 +29,11 @@
         <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
         <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
         <Button Grid.Row="5" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
-        <CheckBox x:Name="WFHCheckBox" Content="Arbejd hjemmefra" Grid.Row="4" Margin="195,0,0,0" Checked="WFHCheckBox_Checked">
+        <CheckBox x:Name="WFHCheckBox" Grid.Row="3" Margin="195,72,457,72" Checked="WFHCheckBox_Checked" Grid.RowSpan="3">
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="4" ScaleY="4"/>
+                <ScaleTransform ScaleX="3" ScaleY="3"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
+        <Label Content="Online" Grid.Row="4" Margin="100,0,500,0" FontSize="25"></Label>
     </Grid>
 </Window>
