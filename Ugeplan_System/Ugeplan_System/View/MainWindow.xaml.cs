@@ -24,8 +24,8 @@ namespace Ugeplan_System.View
 
         public MainWindow()
         {
-            Mvm = new MainViewModel();
             InitializeComponent();
+            Mvm = new MainViewModel();
         }
 
         private void WeekScheduleButton_Click(object sender, RoutedEventArgs e)
