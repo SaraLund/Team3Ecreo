@@ -21,6 +21,7 @@ namespace Ugeplan_System.View
     public partial class MainWindow : Window
     {
         public MainViewModel Mvm { get; set; }
+        public DateTime Day { get; set; }
 
         public MainWindow()
         {
@@ -56,6 +57,12 @@ namespace Ugeplan_System.View
         {
             var AddMeeting = new AddMeetingWindow(Mvm);
             AddMeeting.Show();
+        }
+
+        private void ShowProject_Click(object sender, RoutedEventArgs e)
+        {
+            var ShowProject = new ShowProjectWindow(Day, Mvm);
+            ShowProject.Show();
         }
     }
 }

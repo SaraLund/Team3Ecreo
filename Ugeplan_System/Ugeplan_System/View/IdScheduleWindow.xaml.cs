@@ -38,6 +38,7 @@ namespace Ugeplan_System.View
                 {
                     ListBoxItem listBoxItem = new();
                     listBoxItem.FontSize = 30;
+                    //string WFH = eList[i].Dates.Find(x => x.ScheduleDate == day).WorkFromHome ? "Online" : "Fysisk";
                     listBoxItem.Content = evm.Name + ": " + d.ScheduleDate.DayOfWeek + " d " + d.ScheduleDate.ToShortDateString() + " " + d.StartTime + " - " + d.EndTime + " : " + d.WorkFromHome;
                     listBox.Items.Add(listBoxItem);
                 }
