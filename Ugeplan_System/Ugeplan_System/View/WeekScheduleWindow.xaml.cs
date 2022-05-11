@@ -22,7 +22,6 @@ namespace Ugeplan_System.View
     /// </summary>
     public partial class WeekScheduleWindow : Window
     {
-        // MainViewModel mvm = MainViewModel.Mvm;
         List<EmployeeViewModel> eList = new List<EmployeeViewModel>();
         List<String> newEList = new List<String>();
         EmployeeViewModel evm = new EmployeeViewModel();
@@ -42,25 +41,8 @@ namespace Ugeplan_System.View
             Year = DateTime.Now.Year;
             WeekNumberLabel.Content = $"uge {Week} {Year}";
 
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
-            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
-            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
-            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
-            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
-            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
+            FillWeekSchedule();
+            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -70,39 +52,17 @@ namespace Ugeplan_System.View
 
         private void NextWeekButton_Click(object sender, RoutedEventArgs e)
         {
-            Clear();
             if (Week == 52)
             {
                 Week = 0;
                 Year++;
             }
             Week++;
-
-            WeekNumberLabel.Content =$"uge {Week} {Year}";
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
-            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
-            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
-            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
-            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
-            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
+            FillWeekSchedule();
         }
 
         private void LastWeekButton_Click(object sender, RoutedEventArgs e)
         {
-            Clear();
             if (Week == 1 || Week == 0)
             {
                 Week = 53;
@@ -111,55 +71,16 @@ namespace Ugeplan_System.View
             Week--;
 
             WeekNumberLabel.Content = $"uge {Week} {Year}";
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
-            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
 
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
-            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
-            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
-            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
-            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
-            ShowEmployeeInitials();
+            FillWeekSchedule();
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Week = int.Parse(SearchTextBox.Text);
             WeekNumberLabel.Content = $"uge {Week} {Year}";
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
-            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
-            EmployeeListBox1.Items.Clear();
-            ShowEmployeeInitials();
 
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Tuesday);
-            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
-            EmployeeListBox2.Items.Clear();
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Wednesday);
-            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
-            EmployeeListBox3.Items.Clear();
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Thursday);
-            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
-            EmployeeListBox4.Items.Clear();
-            ShowEmployeeInitials();
-
-            Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Friday);
-            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
-            EmployeeListBox5.Items.Clear();
-            ShowEmployeeInitials();
+            FillWeekSchedule();
         }
         private void MondayButton_Click(object sender, RoutedEventArgs e)
         {
@@ -195,48 +116,6 @@ namespace Ugeplan_System.View
             var DayWindow = new DateScheduleWindow(Day, Mvm);
             DayWindow.Show();
         }
-
-        private void ShowEmployeeInitials()
-        {
-            newEList.Clear();
-            foreach (EmployeeViewModel evm in Mvm.Evm)
-            {
-                if (evm.Dates.Exists(x => x.ScheduleDate.ToShortDateString() == Day.ToShortDateString()))
-                {
-                    eList.Add(evm);
-                    splitArray = evm.Name.Split(' ');
-                    newEList.Add(splitArray[0].Substring(0, 1) + splitArray[splitArray.Length - 1].Substring(0, 1));
-                }
-            }
-            for (int i = 0; i < newEList.Count; i++)
-            {
-                Label l = new Label();
-                l.FontSize = 30;
-                l.Content = newEList[i];
-                l.Background = new SolidColorBrush(Colors.White);
-                if (Day.DayOfWeek == DayOfWeek.Monday)
-                {
-                    EmployeeListBox1.Items.Add(l);
-                }
-                else if (Day.DayOfWeek == DayOfWeek.Tuesday)
-                {
-                    EmployeeListBox2.Items.Add(l);
-
-                }
-                else if (Day.DayOfWeek == DayOfWeek.Wednesday)
-                {
-                    EmployeeListBox3.Items.Add(l);
-                }
-                else if (Day.DayOfWeek == DayOfWeek.Thursday)
-                {
-                    EmployeeListBox4.Items.Add(l);
-                }
-                else if (Day.DayOfWeek == DayOfWeek.Friday)
-                {
-                    EmployeeListBox5.Items.Add(l);
-                }
-            }
-        }
         
         private void Clear()
         {
@@ -245,6 +124,52 @@ namespace Ugeplan_System.View
             EmployeeListBox3.Items.Clear();
             EmployeeListBox4.Items.Clear();
             EmployeeListBox5.Items.Clear();
+        }
+
+        private void FillWeekSchedule()
+        {
+            Clear();
+            Label l;
+            string s;
+
+            Day = ISOWeek.ToDateTime(Year, Week, DayOfWeek.Monday);
+            MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
+            ShowInitials(EmployeeListBox1);
+
+            Day = ISOWeek.ToDateTime(Year, Week, DayOfWeek.Tuesday);
+            TuesdayLabel.Content = $"Tirsdag {Day.Day}/{Day.Month}";
+            ShowInitials(EmployeeListBox2);
+
+            Day = ISOWeek.ToDateTime(Year, Week, DayOfWeek.Wednesday);
+            WednesdayLabel.Content = $"Onsdag {Day.Day}/{Day.Month}";
+            ShowInitials(EmployeeListBox3);
+
+            Day = ISOWeek.ToDateTime(Year, Week, DayOfWeek.Thursday);
+            ThursdayLabel.Content = $"Torsdag {Day.Day}/{Day.Month}";
+            ShowInitials(EmployeeListBox4);
+
+            Day = ISOWeek.ToDateTime(Year, Week, DayOfWeek.Friday);
+            FridayLabel.Content = $"Fredag {Day.Day}/{Day.Month}";
+            ShowInitials(EmployeeListBox5);
+        }
+
+        private void ShowInitials(ListBox listBox) 
+        {
+            Label l;
+            string s;
+            foreach (EmployeeViewModel evm in Mvm.Evm)
+            {
+                if (evm.Dates.Exists(x => x.ScheduleDate.ToShortDateString() == Day.ToShortDateString()))
+                {
+                    splitArray = evm.Name.Split(' ');
+                    s = splitArray[0].Substring(0, 1) + splitArray[splitArray.Length - 1].Substring(0, 1);
+                    l = new Label();
+                    l.FontSize = 30;
+                    l.Content = s;
+                    l.Background = new SolidColorBrush(Colors.White);
+                    listBox.Items.Add(l);
+                }
+            }
         }
     }
 }
