@@ -21,14 +21,14 @@ namespace Ugeplan_System.View
     /// </summary>
     public partial class AddDate : Window
     {
+        public bool WorkFromHome { get; set; } = false;
         private MainViewModel mvm;
         public MainViewModel Mvm
         {
             get { return mvm; }
             set { mvm = value; }
         }
-        public bool WorkFromHome { get; set; } = false;
-
+        
         public AddDate(MainViewModel mvm)
         {
             Mvm = mvm;

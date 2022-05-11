@@ -20,13 +20,10 @@ namespace Ugeplan_System.View
     /// </summary>
     public partial class DateScheduleWindow : Window
     {
-        
-        EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         public DateTime Day { get; set; }
         public MainViewModel Mvm { get; set; }
-        List<EmployeeViewModel> eList = new List<EmployeeViewModel>();
+        List<EmployeeViewModel> eList = new();
         
-
         public DateScheduleWindow(DateTime day, MainViewModel mvm)
         {
             InitializeComponent();
@@ -41,10 +38,10 @@ namespace Ugeplan_System.View
                     eList.Add(evm);
                 }
             }
+
             for (int i = 0; i < eList.Count; i++)
             {
-                
-                ListBoxItem listBoxItem = new ListBoxItem();
+                ListBoxItem listBoxItem = new();
                 listBoxItem.FontSize = 30;
                 string WFH = eList[i].Dates.Find(x => x.ScheduleDate == day).WorkFromHome ? "Online" : "Fysisk";
                 listBoxItem.Content = eList[i].Name + ": " + eList[i].Dates.Find(x => x.ScheduleDate == day).StartTime + " - " + eList[i].Dates.Find(x => x.ScheduleDate == day).EndTime + " : " + WFH;

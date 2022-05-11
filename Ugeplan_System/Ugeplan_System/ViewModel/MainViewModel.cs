@@ -11,13 +11,13 @@ namespace Ugeplan_System.ViewModel
     public class MainViewModel
     {
         public ObservableCollection<EmployeeViewModel> Evm { get; set; } = new();
-        private static readonly EmployeeRepo er = new EmployeeRepo();
+        private static readonly EmployeeRepo er = new();
         public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
-        private static readonly DateRepo dr = new DateRepo();
+        private static readonly DateRepo dr = new();
         public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
         private static readonly MeetingRepo mr = new MeetingRepo(er.GetAllEmployee());
         public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
-        private static readonly ProjectRepo pr = new ProjectRepo(er.GetAllEmployee());
+        private static readonly ProjectRepo pr = new(er.GetAllEmployee());
         public MainViewModel()
         {
             GetEmployee(er.GetAllEmployee());
@@ -77,11 +77,10 @@ namespace Ugeplan_System.ViewModel
 
         public void GetMeeting(List<Meeting> meetings)
         {
-            
             foreach (Meeting m in meetings)
             {
-                List<EmployeeViewModel> newEmployees = new List<EmployeeViewModel>();
-                EmployeeViewModel temp = new EmployeeViewModel();
+                List<EmployeeViewModel> newEmployees = new();
+                EmployeeViewModel temp = new();
                 for (int i = 0; i < m.Employees.Count; i++)
                 {
                     temp.EmployeeId = m.Employees[i].EmployeeId;
@@ -91,6 +90,7 @@ namespace Ugeplan_System.ViewModel
                     temp.PhoneNumber = m.Employees[i].PhoneNumber;
                     newEmployees.Add(temp);
                 }
+
                 Meetvm.Add(new MeetingViewModel(m.Room, m.MeetingDescription, m.StartTime, m.EndTime, m.MeetingDate, m.OnlineMeeting, newEmployees));
             }
         }
@@ -98,8 +98,8 @@ namespace Ugeplan_System.ViewModel
         public void AddMeeting(string room, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees, string initials)
         {
             Meetvm.Add(new MeetingViewModel(room, meetingDescription, startTime, endTime, meetingDate, onlineMeeting, employees));
-            List<Employee> newEmployees = new List<Employee>();
-            Employee temp = new Employee();
+            List<Employee> newEmployees = new();
+            Employee temp = new();
             for (int i = 0; i < employees.Count; i++)
             {
                 temp.EmployeeId = employees[i].EmployeeId;
@@ -110,6 +110,7 @@ namespace Ugeplan_System.ViewModel
                 temp.Initials = employees[i].Initials;
                 newEmployees.Add(temp);
             }
+          
             mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, newEmployees, room, initials);
         }
 
@@ -119,8 +120,8 @@ namespace Ugeplan_System.ViewModel
         {
             foreach (Project p in projects)
             {
-                List<EmployeeViewModel> newEmployees = new List<EmployeeViewModel>();
-                EmployeeViewModel temp = new EmployeeViewModel();
+                List<EmployeeViewModel> newEmployees = new();
+                EmployeeViewModel temp = new();
                 for (int i = 0; i < p.Employees.Count; i++)
                 {
                     temp.EmployeeId = p.Employees[i].EmployeeId;
@@ -131,6 +132,7 @@ namespace Ugeplan_System.ViewModel
                     temp.Initials = p.Employees[i].Initials;
                     newEmployees.Add(temp);
                 }
+
                 Pvm.Add(new ProjectViewModel(p.ProjectId ,p.ProjectName, p.Description, p.StartTime, p.EndTime, p.Priority, newEmployees));
             }
         }
@@ -138,8 +140,8 @@ namespace Ugeplan_System.ViewModel
         public void AddProject(string projectName, string description, string startTime, string endTime, int priority, List<EmployeeViewModel> employees, string names)
         {
             Pvm.Add(new ProjectViewModel(Pvm.Count + 1, projectName, description, startTime, endTime, priority, employees));
-            List<Employee> newEmployees = new List<Employee>();
-            Employee temp = new Employee();
+            List<Employee> newEmployees = new();
+            Employee temp = new();
             for (int i = 0; i < employees.Count; i++)
             {
                 temp.EmployeeId = employees[i].EmployeeId;
@@ -150,8 +152,8 @@ namespace Ugeplan_System.ViewModel
                 temp.Initials = employees[i].Initials;
                 newEmployees.Add(temp);
             }
+
             pr.AddProject(projectName, description, startTime, endTime, priority, newEmployees, names);
         }
-
     }
 }

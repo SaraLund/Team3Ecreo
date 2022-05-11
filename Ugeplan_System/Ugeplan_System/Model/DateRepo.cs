@@ -9,7 +9,7 @@ namespace Ugeplan_System.Model
 {
     public class DateRepo
     {
-        private List<Date> dates = new List<Date>();
+        private List<Date> dates = new();
         private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
 
         public DateRepo()
@@ -21,11 +21,11 @@ namespace Ugeplan_System.Model
         {
             Date date;
 
-            using(SqlConnection conn = new SqlConnection(connStr))
+            using(SqlConnection conn = new(connStr))
             {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand("SELECT DateId, ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome FROM DateTable", conn);
+                SqlCommand command = new("SELECT DateId, ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome FROM DateTable", conn);
 
                 using(SqlDataReader reader = command.ExecuteReader())
                 {
@@ -55,7 +55,7 @@ namespace Ugeplan_System.Model
 
         public void AddDate(DateTime date, string start, string end, int employeeId, bool workFromHome)
         {
-            Date newDate = new Date();
+            Date newDate = new();
             newDate.DateId = dates.Count;
             newDate.ScheduleDate = date;
             newDate.StartTime = start;
@@ -65,10 +65,10 @@ namespace Ugeplan_System.Model
 
             dates.Add(newDate);
 
-            using(SqlConnection conn = new SqlConnection(connStr))
+            using(SqlConnection conn = new(connStr))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("INSERT INTO dbo.DateTable(ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome)" +
+                SqlCommand command = new("INSERT INTO dbo.DateTable(ThisDate, StartTime, EndTime, EmployeeId, WorkFromHome)" +
                                                     "VALUES (@thisDate, @startTime, @endTime, @employeeId, @workFromHome)", conn);
                 command.Parameters.Add("@thisDate", System.Data.SqlDbType.DateTime2).Value = newDate.ScheduleDate;
                 command.Parameters.Add("@startTime", System.Data.SqlDbType.NVarChar).Value = newDate.StartTime;
@@ -92,11 +92,11 @@ namespace Ugeplan_System.Model
             {
                 dates.Remove(oldDate);
                 
-                using(SqlConnection conn = new SqlConnection(connStr))
+                using(SqlConnection conn = new(connStr))
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("DELETE FROM DateTable WHERE DateId = @dateId;", conn);
+                    SqlCommand command = new("DELETE FROM DateTable WHERE DateId = @dateId;", conn);
 
                     command.Parameters.Add("@dateId", System.Data.SqlDbType.Int).Value = oldDate.DateId;
 
@@ -113,11 +113,11 @@ namespace Ugeplan_System.Model
                 temp.StartTime = newStart;
                 temp.EndTime = newEnd;
 
-                using(SqlConnection conn = new SqlConnection(connStr))
+                using(SqlConnection conn = new(connStr))
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("UPDATE DateTable SET StartTime = @newStart, EndTime = @newEnd" +
+                    SqlCommand command = new("UPDATE DateTable SET StartTime = @newStart, EndTime = @newEnd" +
                                                         "WHERE DateId = @dateId", conn);
                     command.Parameters.Add("@newStart", System.Data.SqlDbType.NVarChar).Value = newStart;
                     command.Parameters.Add("@newEnd", System.Data.SqlDbType.NVarChar).Value = newEnd;
