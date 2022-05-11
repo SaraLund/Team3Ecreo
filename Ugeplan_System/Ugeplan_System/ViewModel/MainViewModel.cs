@@ -15,7 +15,7 @@ namespace Ugeplan_System.ViewModel
         public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
         private static readonly DateRepo dr = new();
         public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
-        private static readonly MeetingRepo mr = new();
+        private static readonly MeetingRepo mr = new MeetingRepo(er.GetAllEmployee());
         public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
         private static readonly ProjectRepo pr = new(er.GetAllEmployee());
         public MainViewModel()
@@ -95,7 +95,7 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddMeeting(string room, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees)
+        public void AddMeeting(string room, string meetingDescription, string startTime, string endTime, DateTime meetingDate, bool onlineMeeting, List<EmployeeViewModel> employees, string initials)
         {
             Meetvm.Add(new MeetingViewModel(room, meetingDescription, startTime, endTime, meetingDate, onlineMeeting, employees));
             List<Employee> newEmployees = new();
@@ -107,10 +107,11 @@ namespace Ugeplan_System.ViewModel
                 temp.Mail = employees[i].Mail;
                 temp.Name = employees[i].Name;
                 temp.PhoneNumber = employees[i].PhoneNumber;
+                temp.Initials = employees[i].Initials;
                 newEmployees.Add(temp);
             }
-
-            mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, newEmployees, room);
+          
+            mr.AddMeeting(meetingDescription, startTime, endTime, meetingDate, onlineMeeting, newEmployees, room, initials);
         }
 
         // ----------------------------------PROJECT---------------------------------- \\

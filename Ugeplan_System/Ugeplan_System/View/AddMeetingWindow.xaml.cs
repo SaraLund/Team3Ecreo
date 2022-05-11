@@ -69,7 +69,7 @@ namespace Ugeplan_System.View
             }
             else
             {
-                Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees);//Tilret koden ligesom koden for project
+                Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees, emptyString);
                 MessageBox.Show("Mødet er tilføjet");
                 this.Close();
             }
