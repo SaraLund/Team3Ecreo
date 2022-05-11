@@ -38,6 +38,8 @@ namespace Ugeplan_System.Model
                         employee.JobPosition = reader["JobPosition"].ToString();
                         employee.Mail = reader["Mail"].ToString();
                         employee.PhoneNumber = reader["PhoneNumber"].ToString();
+                        string[] temp = employee.Name.Split(' ');
+                        employee.Initials = temp[0].Substring(0, 1) + temp[temp.Length - 1].Substring(0, 1);
 
                         employees.Add(employee);
                     }
@@ -45,7 +47,7 @@ namespace Ugeplan_System.Model
             }
         }
 
-        public void AddEmployee(string name, string jobPosition, string mail, string phoneNumber)
+        public void AddEmployee(string name, string jobPosition, string mail, string phoneNumber, string initials)
         {
             Employee e = new Employee();
             e.EmployeeId = employees.Count;
@@ -53,6 +55,7 @@ namespace Ugeplan_System.Model
             e.JobPosition = jobPosition;
             e.Mail = mail;
             e.PhoneNumber = phoneNumber;
+            e.Initials = initials;
 
             employees.Add(e);
 

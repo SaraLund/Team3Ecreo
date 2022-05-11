@@ -13,10 +13,11 @@ namespace Ugeplan_System.Model
         public string JobPosition { get; set; }
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
-        public List<Date> Dates { get; set; } = new List<Date>(); 
+        public List<Date> Dates { get; set; } = new List<Date>();
+        public string Initials { get; set; }
         
 
-        public Employee(int employeeId, string name, string jobPosition, string mail, string phoneNumber, List<Date> dates)
+        public Employee(int employeeId, string name, string jobPosition, string mail, string phoneNumber, List<Date> dates, string initials)
         {
             EmployeeId = employeeId;
             Name = name;
@@ -24,6 +25,7 @@ namespace Ugeplan_System.Model
             Mail = mail;
             PhoneNumber = phoneNumber;
             Dates = dates;
+            Initials = initials;
         }
 
         public Employee()

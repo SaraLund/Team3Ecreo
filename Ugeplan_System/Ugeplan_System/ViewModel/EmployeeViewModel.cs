@@ -15,14 +15,16 @@ namespace Ugeplan_System.ViewModel
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
         public List<DateViewModel> Dates { get; set; } = new List<DateViewModel>();
+        public string Initials { get; set; }
 
-        public EmployeeViewModel(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
+        public EmployeeViewModel(int employeeId, string name, string jobPosition, string mail, string phoneNumber, string initials)
         {
             EmployeeId = employeeId;
             Name = name;
             JobPosition = jobPosition;
             Mail = mail;
             PhoneNumber = phoneNumber;
+            Initials = initials;
         }
 
         public EmployeeViewModel()

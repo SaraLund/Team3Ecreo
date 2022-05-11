@@ -24,8 +24,8 @@ namespace Ugeplan_System.View
 
         public MainWindow()
         {
-            Mvm = new MainViewModel();
             InitializeComponent();
+            Mvm = new MainViewModel();
         }
 
         private void WeekScheduleButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +44,18 @@ namespace Ugeplan_System.View
         {
             var IdWindow = new IdScheduleWindow(Mvm);
             IdWindow.Show();
+        }
+
+        private void AddProject_Click(object sender, RoutedEventArgs e)
+        {
+            var AddProject = new AddProjectWindow(Mvm);
+            AddProject.Show();
+        }
+
+        private void AddMeetimg_Click(object sender, RoutedEventArgs e)
+        {
+            var AddMeeting = new AddMeetingWindow(Mvm);
+            AddMeeting.Show();
         }
     }
 }
