@@ -15,7 +15,7 @@ namespace Ugeplan_System.ViewModel
         public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
         private static readonly DateRepo dr = new();
         public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
-        private static readonly MeetingRepo mr = new MeetingRepo(er.GetAllEmployee());
+        private static readonly MeetingRepo mr = new(er.GetAllEmployee());
         public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
         private static readonly ProjectRepo pr = new(er.GetAllEmployee());
         public MainViewModel()
