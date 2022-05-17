@@ -32,7 +32,7 @@
                 <RowDefinition Height="70"></RowDefinition>
                 <RowDefinition Height="180"></RowDefinition>
                 <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="140"></RowDefinition>
                 <RowDefinition Height="70"></RowDefinition>
                 <RowDefinition Height="70"></RowDefinition>
             </Grid.RowDefinitions>
@@ -53,8 +53,12 @@
             <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="380,0,20,0" MinHeight="50" FontSize="25" />
 
             <Label Content="Deltagere" Grid.Row="4" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxEmployees" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
-
+            <Label Content="Alle medarbejdere" Grid.Row="4" Grid.Column="1" Margin="0,0,400,100" FontSize="15" VerticalAlignment="Top"/>
+            <ListBox x:Name="AllEmpListBox" Grid.Column="1" Grid.Row="4" Margin="0,40,400,0"/>
+            <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,50,250,50" Click="AddEmployeeBtn_Click"/>
+            <Label Content="Valgte medarbejdere" Grid.Row="4" Grid.Column="1" Margin="400,0,0,100" FontSize="15" VerticalAlignment="Top"/>
+            <ListBox x:Name="SelEmpListBox" Grid.Column="1" Grid.Row="4" Margin="380,40,20,0"/>
+            
             <Label Grid.Row="5" Grid.Column="0" Content="Online møde" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
             <CheckBox x:Name="OnlineCheck" Content="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Checked="OnlineCheck_Checked">
                 <CheckBox.LayoutTransform>
@@ -62,6 +66,7 @@
                 </CheckBox.LayoutTransform>
             </CheckBox>
             <Button Grid.Row="6" Content="Tilføj" Margin="100,0,100,0" FontSize="25" Click="AddButton_Click" Grid.ColumnSpan="2"/>
+            
 
 
 

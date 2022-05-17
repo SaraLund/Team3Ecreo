@@ -11,19 +11,17 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
-        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.Row="0"/>
         
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="Navn" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
@@ -36,11 +34,16 @@
         <TextBox x:Name="TextBoxPriority" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="3" Content="Prioritet" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
         
-        <TextBox x:Name="TextBoxDescription" Grid.Row="4" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
+        <TextBox x:Name="TextBoxDescription" Grid.Row="4" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
         <Label Grid.Row="4" Content="Beskrivelse" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
         
-        <TextBox x:Name="TextBoxEmployees" Grid.Row="6" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
-        <Label Grid.Row="6" Content="Employees" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
-        <Button Grid.Row="8" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+        <Label Grid.Row="5" Content="Employees" Margin="50,0,600,0" FontSize="20" VerticalAlignment="Center"></Label>
+        <Label Content="Alle medarbejdere" Grid.Row="5" Margin="200,0,350,50" FontSize="15" VerticalAlignment="Top"/>
+        <ListBox x:Name="AllEmpListBox" Grid.Row="5" Margin="200,40,400,0"/>
+        <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Row="5" Margin="430,50,250,50" Click="AddEmployeeBtn_Click"/>
+        <Label Content="Valgte medarbejdere" Grid.Row="5" Margin="580,0,20,100" FontSize="15" VerticalAlignment="Top"/>
+        <ListBox x:Name="SelEmpListBox" Grid.Row="5" Margin="580,40,20,0"/>
+
+        <Button Grid.Row="6" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
     </Grid>
 </Window>
