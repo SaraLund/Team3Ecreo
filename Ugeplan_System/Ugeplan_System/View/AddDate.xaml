@@ -5,35 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ugeplan_System.View"
         mc:Ignorable="d"
-        Title="AddDate" Height="450" Width="800" ResizeMode="NoResize">
+        Title="AddDate" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
+        <Image x:Name="ecreo_png" Margin="290,5,290,40" Source="/ecreo.png" Grid.Row="0" />
         <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="ID" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <TextBox x:Name="TextBoxScheduleDate" Grid.Row="2" Text="YYYY/MM/DD" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch" GotFocus="TextBoxScheduleDate_GotFocus" LostFocus="TextBoxScheduleDate_LostFocus"></TextBox>
+
         <Label Grid.Row="2" Content="Dato" Margin="100,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
+        <Calendar x:Name="scheduleCal" HorizontalAlignment="Left" Margin="200,0,0,0" Grid.Row="2" VerticalAlignment="Center" SelectionMode="SingleDate"/>
+
         <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
         <Label Grid.Row="3" Content="Tid" Margin="100,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
         <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
+
         <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
-        <Button Grid.Row="5" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
-        <CheckBox x:Name="WFHCheckBox" Grid.Row="3" Margin="195,72,457,72" Checked="WFHCheckBox_Checked" Grid.RowSpan="3">
+
+        <CheckBox x:Name="WFHCheckBox" Grid.Row="4" Margin="200,10,0,0" Checked="WFHCheckBox_Checked" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.522,0.155">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3" ScaleY="3"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <Label Content="Online" Grid.Row="4" Margin="100,0,500,0" FontSize="25"></Label>
+        <Label Content="Online" Grid.Row="4" Margin="100,0,600,0" FontSize="25" VerticalAlignment="Center"></Label>
+
+        <Button Grid.Row="5" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
     </Grid>
 </Window>

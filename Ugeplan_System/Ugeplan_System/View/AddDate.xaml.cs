@@ -37,7 +37,7 @@ namespace Ugeplan_System.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime scheduleDate = Convert.ToDateTime(TextBoxScheduleDate.Text);
+            DateTime scheduleDate = Convert.ToDateTime(scheduleCal.SelectedDate);
             DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             if(scheduleDate < dateTime)
             {
@@ -69,19 +69,6 @@ namespace Ugeplan_System.View
         private void WFHCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             WorkFromHome = true;
-        }
-
-        private void TextBoxScheduleDate_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxScheduleDate.Text = "";
-        }
-
-        private void TextBoxScheduleDate_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(TextBoxScheduleDate.Text == "")
-            {
-                TextBoxScheduleDate.Text = "YYYY/MM/DD";
-            }
         }
     }
 }

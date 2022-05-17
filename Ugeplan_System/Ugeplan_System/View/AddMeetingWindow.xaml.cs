@@ -62,17 +62,12 @@ namespace Ugeplan_System.View
             }
 
             emptyString = emptyString.Remove(emptyString.Length - 1);
-            DateTime date;
-            if(!DateTime.TryParse(TextBoxDate.Text, out date))
-            {
-                MessageBox.Show("Eventuel tastefejl i datoen, skrivvenligst i formatet: YYYY/MM/DD");
-            }
-            else
-            {
-                Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees, emptyString);
-                MessageBox.Show("Mødet er tilføjet");
-                this.Close();
-            }
+            DateTime date = Convert.ToDateTime(MeetingCal.SelectedDate);
+            
+            Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees, emptyString);
+            MessageBox.Show("Mødet er tilføjet");
+            this.Close();
+            
         }
 
         private void OnlineCheck_Checked(object sender, RoutedEventArgs e)
@@ -80,17 +75,5 @@ namespace Ugeplan_System.View
             online = true;
         }
 
-        private void TextBoxDate_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(TextBoxDate.Text == "")
-            {
-                TextBoxDate.Text = "YYYY/MM/DD";
-            }
-        }
-
-        private void TextBoxDate_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxDate.Text = "";
-        }
     }
 }
