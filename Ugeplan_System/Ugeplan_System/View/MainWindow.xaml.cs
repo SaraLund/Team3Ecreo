@@ -64,5 +64,10 @@ namespace Ugeplan_System.View
             var ShowProject = new ShowProjectWindow(Day, Mvm);
             ShowProject.Show();
         }
+
+        private void ShowMeeting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

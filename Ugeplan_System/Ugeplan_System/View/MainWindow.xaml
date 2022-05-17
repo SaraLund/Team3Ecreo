@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ugeplan_System.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="MainWindow" Height="455" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
@@ -26,11 +26,12 @@
         </Grid>
         <Grid Grid.Row="2">
             <Button x:Name="WeekScheduleButton" Content="Ugeplan" Margin="50,125,50,265" Click="WeekScheduleButton_Click"/>
-            <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,50,195" Click="AddDateButton_Click"/>
-            <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="50,270,50,120" Click="IdScheduleButton_Click"/>
-            <Button x:Name="AddProject" Content="Opret Projekt" Margin="420,340,230,50" Click="AddProject_Click"/>
-            <Button x:Name="AddMeeting" Content="Opret Møde" Margin="50,340,420,50" Click="AddMeetimg_Click"/>
-            <Button x:Name="ShowProjects" Content="Vis Projekt" Margin="600,340,50,50" Click="ShowProject_Click"/>
+            <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,410,195" Click="AddDateButton_Click"/>
+            <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="410,195,50,195" Click="IdScheduleButton_Click"/>
+            <Button x:Name="AddProject" Content="Opret Projekt" Margin="50,335,410,55" Click="AddProject_Click"/>
+            <Button x:Name="AddMeeting" Content="Opret Møde" Margin="50,265,410,125" Click="AddMeetimg_Click"/>
+            <Button x:Name="ShowProjects" Content="Vis Projekt" Margin="410,335,50,55" Click="ShowProject_Click"/>
+            <Button x:Name="ShowMeeting" Content="Vis Møde" Margin="410,265,50,125" Click="ShowMeeting_Click" />
         </Grid>
     </Grid>
 </Window>
