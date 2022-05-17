@@ -38,11 +38,27 @@ namespace Ugeplan_System.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DateTime scheduleDate = Convert.ToDateTime(TextBoxScheduleDate.Text);
-            string startTime = TextBoxStartTime.Text;
-            string endTime = TextBoxEndTime.Text;
-            int emplayeeId = int.Parse(TextBoxID.Text);
-            Mvm.AddDate(scheduleDate, startTime, endTime, emplayeeId, WorkFromHome);
-            this.Close();
+            DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            if(scheduleDate < dateTime)
+            {
+                MessageBox.Show("Denne dato er i fortiden");
+            }
+            else
+            {
+                int employeeId = int.Parse(TextBoxID.Text);
+                string startTime = TextBoxStartTime.Text;
+                string endTime = TextBoxEndTime.Text;
+                if(Mvm.AddDate(scheduleDate, startTime, endTime, employeeId, WorkFromHome))
+                {
+                    MessageBox.Show("Den nye dato er tilføjet");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Denne dato er optaget");
+                }
+            }
+            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
