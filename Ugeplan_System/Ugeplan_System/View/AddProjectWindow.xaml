@@ -40,7 +40,8 @@
         <Label Grid.Row="5" Content="Employees" Margin="50,0,600,0" FontSize="20" VerticalAlignment="Center"></Label>
         <Label Content="Alle medarbejdere" Grid.Row="5" Margin="200,0,350,50" FontSize="15" VerticalAlignment="Top"/>
         <ListBox x:Name="AllEmpListBox" Grid.Row="5" Margin="200,40,400,0"/>
-        <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Row="5" Margin="430,50,250,50" Click="AddEmployeeBtn_Click"/>
+        <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Row="5" Margin="430,40,250,70" Click="AddEmployeeBtn_Click"/>
+        <Button x:Name="RemEmployeeBtn" Content="Fjern medarbejder" Grid.Row="5" Margin="430,80,250,30" Click="RemEmployeeBtn_Click"/>
         <Label Content="Valgte medarbejdere" Grid.Row="5" Margin="580,0,20,100" FontSize="15" VerticalAlignment="Top"/>
         <ListBox x:Name="SelEmpListBox" Grid.Row="5" Margin="580,40,20,0"/>
 

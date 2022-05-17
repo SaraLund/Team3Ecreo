@@ -85,10 +85,21 @@ namespace Ugeplan_System.View
         private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
             var emp = (AllEmpListBox.SelectedItem as ListBoxItem).Content;
+            AllEmpListBox.Items.Remove(AllEmpListBox.SelectedItem);
             ListBoxItem lbi = new();
             lbi.FontSize = 15;
             lbi.Content = emp;
             SelEmpListBox.Items.Add(lbi);
+        }
+
+        private void RemEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var emp = (SelEmpListBox.SelectedItem as ListBoxItem).Content;
+            SelEmpListBox.Items.Remove(SelEmpListBox.SelectedItem);
+            ListBoxItem lbi = new();
+            lbi.FontSize = 15;
+            lbi.Content = emp;
+            AllEmpListBox.Items.Add(lbi);
         }
     }
 }

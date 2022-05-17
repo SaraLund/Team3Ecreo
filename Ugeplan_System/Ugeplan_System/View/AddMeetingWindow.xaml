@@ -55,7 +55,8 @@
             <Label Content="Deltagere" Grid.Row="4" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
             <Label Content="Alle medarbejdere" Grid.Row="4" Grid.Column="1" Margin="0,0,400,100" FontSize="15" VerticalAlignment="Top"/>
             <ListBox x:Name="AllEmpListBox" Grid.Column="1" Grid.Row="4" Margin="0,40,400,0"/>
-            <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,50,250,50" Click="AddEmployeeBtn_Click"/>
+            <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,40,250,70" Click="AddEmployeeBtn_Click"/>
+            <Button x:Name="RemEmployeeBtn" Content="Fjern medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,80,250,30" Click="RemEmployeeBtn_Click"/>
             <Label Content="Valgte medarbejdere" Grid.Row="4" Grid.Column="1" Margin="400,0,0,100" FontSize="15" VerticalAlignment="Top"/>
             <ListBox x:Name="SelEmpListBox" Grid.Column="1" Grid.Row="4" Margin="380,40,20,0"/>
             
