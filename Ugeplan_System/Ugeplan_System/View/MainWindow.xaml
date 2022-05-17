@@ -25,13 +25,83 @@
             <Image x:Name="ecreo_png" Margin="35,0,35,0" Grid.RowSpan="2" Grid.Column="1" Source="/ecreo.png"></Image>
         </Grid>
         <Grid Grid.Row="2">
-            <Button x:Name="WeekScheduleButton" Content="Ugeplan" Margin="50,125,50,265" Click="WeekScheduleButton_Click"/>
-            <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,410,195" Click="AddDateButton_Click"/>
-            <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="410,195,50,195" Click="IdScheduleButton_Click"/>
-            <Button x:Name="AddProject" Content="Opret Projekt" Margin="50,335,410,55" Click="AddProject_Click"/>
-            <Button x:Name="AddMeeting" Content="Opret Møde" Margin="50,265,410,125" Click="AddMeetimg_Click"/>
-            <Button x:Name="ShowProjects" Content="Vis Projekt" Margin="410,335,50,55" Click="ShowProject_Click"/>
-            <Button x:Name="ShowMeeting" Content="Vis Møde" Margin="410,265,50,125" Click="ShowMeeting_Click" />
+            <Button x:Name="WeekScheduleButton" Content="Ugeplan" Margin="50,125,50,265" Click="WeekScheduleButton_Click" Panel.ZIndex="1"/>
+            <Button x:Name="AddDateButton" Content="Lav Ugeplan" Margin="50,195,410,195" Click="AddDateButton_Click" Panel.ZIndex="1"/>
+            <Button x:Name="IdScheduleButton" Content="Find Medarbejder" Margin="410,195,50,195" Click="IdScheduleButton_Click" Panel.ZIndex="1"/>
+            <Button x:Name="AddProject" Content="Opret Projekt" Margin="50,335,410,55" Click="AddProject_Click" Panel.ZIndex="1"/>
+            <Button x:Name="AddMeeting" Content="Opret Møde" Margin="50,265,410,125" Click="AddMeetimg_Click" Panel.ZIndex="1"/>
+            <Button x:Name="ShowProjects" Content="Vis Projekt" Margin="410,335,50,55" Click="ShowProject_Click" Panel.ZIndex="1"/>
+            <Button x:Name="ShowMeeting" Content="Vis Møde" Margin="410,265,50,125" Click="ShowMeeting_Click" Panel.ZIndex="1"/>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="55,130,0,0" VerticalAlignment="Top" Width="700" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="55,199,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="55,271,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="55,341,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="415,199,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="415,271,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="50" Margin="415,341,0,0" VerticalAlignment="Top" Width="340" Fill="Navy" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" Opacity="0.2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.113"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
         </Grid>
     </Grid>
 </Window>
