@@ -25,7 +25,7 @@ namespace Ugeplan_System.View
         public List<ProjectViewModel> ProjectList = new();
         int projectNumber = 0;
 
-        public ShowProjectWindow(DateTime day, MainViewModel mvm)
+        public ShowProjectWindow(MainViewModel mvm)
         {
             InitializeComponent();
             Mvm = mvm;
