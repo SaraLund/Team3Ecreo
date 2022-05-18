@@ -80,9 +80,9 @@ namespace Ugeplan_System.ViewModel
             foreach (Meeting m in meetings)
             {
                 List<EmployeeViewModel> newEmployees = new();
-                EmployeeViewModel temp = new();
                 for (int i = 0; i < m.Employees.Count; i++)
                 {
+                    EmployeeViewModel temp = new();
                     temp.EmployeeId = m.Employees[i].EmployeeId;
                     temp.JobPosition = m.Employees[i].JobPosition;
                     temp.Mail = m.Employees[i].Mail;
@@ -99,9 +99,9 @@ namespace Ugeplan_System.ViewModel
         {
             Meetvm.Add(new MeetingViewModel(room, meetingDescription, startTime, endTime, meetingDate, onlineMeeting, employees));
             List<Employee> newEmployees = new();
-            Employee temp = new();
             for (int i = 0; i < employees.Count; i++)
             {
+                Employee temp = new();
                 temp.EmployeeId = employees[i].EmployeeId;
                 temp.JobPosition = employees[i].JobPosition;
                 temp.Mail = employees[i].Mail;
@@ -121,9 +121,9 @@ namespace Ugeplan_System.ViewModel
             foreach (Project p in projects)
             {
                 List<EmployeeViewModel> newEmployees = new();
-                EmployeeViewModel temp = new();
                 for (int i = 0; i < p.Employees.Count; i++)
                 {
+                    EmployeeViewModel temp = new();
                     temp.EmployeeId = p.Employees[i].EmployeeId;
                     temp.JobPosition = p.Employees[i].JobPosition;
                     temp.Mail = p.Employees[i].Mail;
@@ -141,9 +141,9 @@ namespace Ugeplan_System.ViewModel
         {
             Pvm.Add(new ProjectViewModel(Pvm.Count + 1, projectName, description, startTime, endTime, priority, employees));
             List<Employee> newEmployees = new();
-            Employee temp = new();
             for (int i = 0; i < employees.Count; i++)
             {
+                Employee temp = new();
                 temp.EmployeeId = employees[i].EmployeeId;
                 temp.JobPosition = employees[i].JobPosition;
                 temp.Mail = employees[i].Mail;

@@ -68,7 +68,7 @@ namespace Ugeplan_System.View
             string temp = "";
             TextBoxRoom.Text = MeetingList[meetingnumber].Room.ToString();
             TextBoxDescription.Text = MeetingList[meetingnumber].MeetingDescription.ToString();
-            TextBoxDate.Text = MeetingList[meetingnumber].MeetingDate.ToString();
+            TextBoxDate.Text = MeetingList[meetingnumber].MeetingDate.ToShortDateString();
             TextBoxStartTime.Text = MeetingList[meetingnumber].StartTime.ToString();
             TextBoxEndTime.Text = MeetingList[meetingnumber].EndTime.ToString();
             OnlineCheck.IsChecked = MeetingList[meetingnumber].OnlineMeeting;
