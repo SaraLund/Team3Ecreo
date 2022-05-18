@@ -49,8 +49,8 @@ namespace Ugeplan_System.View
         {
             string projectName = TextBoxID.Text;
             string description = TextBoxDescription.Text;
-            string startTime = TextBoxStartTime.Text;
-            string endTime = TextBoxEndTime.Text;
+            string startTime = Convert.ToDateTime(StartCalender.SelectedDate).ToShortDateString();
+            string endTime = Convert.ToDateTime(EndCalender.SelectedDate).ToShortDateString();
             int priority = int.Parse(TextBoxPriority.Text);
             List<string> names = new();
             foreach (ListBoxItem lbi in SelEmpListBox.Items)

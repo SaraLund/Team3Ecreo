@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="140"></RowDefinition>
             <RowDefinition Height="140"></RowDefinition>
@@ -22,21 +22,18 @@
         </Grid.RowDefinitions>
         <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
         <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.Row="0"/>
-        
+
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="Navn" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
-        
-        <TextBox x:Name="TextBoxStartTime" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
         <Label Grid.Row="2" Content="Dato" Margin="50,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
-        <Label Grid.Row="2" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>
-        <TextBox x:Name="TextBoxEndTime" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="520,0,100,0" MinHeight="50" FontSize="25"/>
-        
+        <Label Grid.Row="2" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="456,0,284,0" ></Label>
+
         <TextBox x:Name="TextBoxPriority" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="3" Content="Prioritet" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
-        
+
         <TextBox x:Name="TextBoxDescription" Grid.Row="4" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
         <Label Grid.Row="4" Content="Beskrivelse" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
-        
+
         <Label Grid.Row="5" Content="Employees" Margin="50,0,600,0" FontSize="20" VerticalAlignment="Center"></Label>
         <Label Content="Alle medarbejdere" Grid.Row="5" Margin="200,0,350,50" FontSize="15" VerticalAlignment="Top"/>
         <ListBox x:Name="AllEmpListBox" Grid.Row="5" Margin="200,40,400,0"/>
@@ -46,5 +43,7 @@
         <ListBox x:Name="SelEmpListBox" Grid.Row="5" Margin="580,40,20,0"/>
 
         <Button Grid.Row="6" Content="Tilføj" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="100,10,100,10" FontSize="25" Click="Button_Click"></Button>
+        <Calendar x:Name="StartCalender" HorizontalAlignment="Left" Margin="200,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <Calendar x:Name="EndCalender" HorizontalAlignment="Left" Margin="521,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
     </Grid>
 </Window>
