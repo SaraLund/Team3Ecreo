@@ -33,12 +33,22 @@ namespace Ugeplan_System.View
         {
             Mvm = mvm;
             InitializeComponent();
+            ListBoxItem lbi;
+            foreach (EmployeeViewModel evm in Mvm.Evm)
+            {
+                lbi = new();
+                lbi.FontSize = 15;
+                lbi.Content = evm.Name;
+                AllEmpListBox.Items.Add(lbi);
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DateTime scheduleDate = Convert.ToDateTime(scheduleCal.SelectedDate);
             DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            
             if(scheduleDate < dateTime)
             {
                 MessageBox.Show("Denne dato er i fortiden");
@@ -69,6 +79,19 @@ namespace Ugeplan_System.View
         private void WFHCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             WorkFromHome = true;
+        }
+
+        private void AllEmpListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var emp = (AllEmpListBox.SelectedItem as ListBoxItem).Content;
+            string SelEmployee = emp.ToString();
+            foreach (EmployeeViewModel evm in Mvm.Evm)
+            {
+                if (evm.Name == SelEmployee)
+                {
+                    TextBoxID.Text = evm.EmployeeId.ToString();
+                }
+            }
         }
     }
 }

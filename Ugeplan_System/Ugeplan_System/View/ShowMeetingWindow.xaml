@@ -21,7 +21,7 @@
             <Image x:Name="ecreo_png" Margin ="0,5,0,40" Source="/ecreo.png" Grid.Row="0" Grid.Column="1"/>
             <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="184,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.Column="2"/>
             <Button x:Name="LastMeetingButton" Content="forrige møde" Grid.Column="2" HorizontalAlignment="Left" Margin="63,64,0,0" VerticalAlignment="Top" Click="LastMeetingButton_Click"/>
-            <Button x:Name="NextMeetingButton" Content="næste møde" Grid.Column="2" HorizontalAlignment="Left" Margin="188,64,0,0" VerticalAlignment="Top" Click="NextMeetingButton_Click"/>
+            <Button x:Name="NextMeetingButton" Content="næste møde" Grid.Column="2" HorizontalAlignment="Left" Margin="177,64,0,0" VerticalAlignment="Top" Click="NextMeetingButton_Click"/>
 
         </Grid>
         <Grid Grid.Row="1">
@@ -34,8 +34,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="Lokale" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
@@ -55,7 +54,7 @@
             <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Margin="380,0,20,0" MinHeight="50" FontSize="25" IsReadOnly="true"/>
 
             <Label Content="Deltagere" Grid.Row="4" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxEmployees" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="50" FontSize="25" IsReadOnly="true"/>
+            <TextBox x:Name="TextBoxEmployees" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="100" TextWrapping="Wrap" FontSize="25" IsReadOnly="true"/>
 
             <Label Grid.Row="5" Grid.Column="0" Content="Online møde" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
             <CheckBox x:Name="OnlineCheck" Content="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"  IsEnabled="False">

@@ -21,12 +21,13 @@
         <Image x:Name="ecreo_png" Margin="290,5,290,40" Source="/ecreo.png" Grid.Row="0" />
         <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
+        <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch" IsReadOnly="True"></TextBox>
         <Label Grid.Row="1" Content="ID" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>
 
         <Label Grid.Row="2" Content="Dato" Margin="100,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
         <Calendar x:Name="scheduleCal" HorizontalAlignment="Left" Margin="200,0,0,0" Grid.Row="2" VerticalAlignment="Center" SelectionMode="SingleDate"/>
-
+        <ListBox x:Name="AllEmpListBox" Grid.Row="2" Height="160" Width="290" Margin="290,0,0,0" SelectedIndex="0" SelectionChanged="AllEmpListBox_SelectionChanged"></ListBox>
+        
         <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Text="" VerticalAlignment="Center" Margin="200,0,420,0" MinHeight="50" FontSize="25"/>
         <Label Grid.Row="3" Content="Tid" Margin="100,0,635,0" FontSize="25" VerticalAlignment="Center"></Label>
         <Label Grid.Row="3" Content="Til" VerticalAlignment="Center" FontSize="25" Margin="431,0,309,0" ></Label>

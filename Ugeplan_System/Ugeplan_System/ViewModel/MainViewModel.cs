@@ -50,12 +50,6 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber, string initials)
-        {
-            Evm.Add(new EmployeeViewModel(employeeId, name, jobPosition, mail, phoneNumber, initials));
-            er.AddEmployee(name, jobPosition, mail, phoneNumber, initials);
-        }
-
         // ----------------------------------DATE---------------------------------- \\
 
         public void GetDate(List<Date> dates)
