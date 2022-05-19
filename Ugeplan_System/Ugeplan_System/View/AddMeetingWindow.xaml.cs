@@ -26,6 +26,14 @@ namespace Ugeplan_System.View
         {
             InitializeComponent();
             Mvm = mvm;
+            ListBoxItem lbi;
+            foreach(EmployeeViewModel evm in Mvm.Evm)
+            {
+                lbi = new();
+                lbi.FontSize = 15;
+                lbi.Content = evm.Name;
+                AllEmpListBox.Items.Add(lbi);
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -39,11 +47,15 @@ namespace Ugeplan_System.View
             string description = TextBoxDescription.Text;
             string startTime = TextBoxStartTime.Text;
             string endTime = TextBoxEndTime.Text;
-            string[] splitArray;
-            splitArray = TextBoxEmployees.Text.Split(';');
+
+            List<string> names = new();
+            foreach(ListBoxItem lbi in SelEmpListBox.Items)
+            {
+                names.Add(lbi.Content.ToString());
+            }
 
             List<EmployeeViewModel> employees = new();
-            foreach (string s in splitArray)
+            foreach (string s in names)
             {
                 if (Mvm.Evm.Any(e => e.Name == s))
                 {
@@ -53,7 +65,7 @@ namespace Ugeplan_System.View
 
             string emptyString = "";
             string[] stringArrayAgain;
-            foreach (string s in splitArray)
+            foreach (string s in names)
             {
                 stringArrayAgain = s.Split(' ');
                 emptyString += stringArrayAgain[0].Substring(0, 1);
@@ -62,17 +74,12 @@ namespace Ugeplan_System.View
             }
 
             emptyString = emptyString.Remove(emptyString.Length - 1);
-            DateTime date;
-            if(!DateTime.TryParse(TextBoxDate.Text, out date))
-            {
-                MessageBox.Show("Eventuel tastefejl i datoen, skrivvenligst i formatet: YYYY/MM/DD");
-            }
-            else
-            {
-                Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees, emptyString);
-                MessageBox.Show("Mødet er tilføjet");
-                this.Close();
-            }
+            DateTime date = Convert.ToDateTime(MeetingCal.SelectedDate);
+            
+            Mvm.AddMeeting(room, description, startTime, endTime, date, online, employees, emptyString);
+            MessageBox.Show("Mødet er tilføjet");
+            this.Close();
+            
         }
 
         private void OnlineCheck_Checked(object sender, RoutedEventArgs e)
@@ -80,17 +87,24 @@ namespace Ugeplan_System.View
             online = true;
         }
 
-        private void TextBoxDate_LostFocus(object sender, RoutedEventArgs e)
+        private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(TextBoxDate.Text == "")
-            {
-                TextBoxDate.Text = "YYYY/MM/DD";
-            }
+            var emp = (AllEmpListBox.SelectedItem as ListBoxItem).Content;
+            AllEmpListBox.Items.Remove(AllEmpListBox.SelectedItem);
+            ListBoxItem lbi = new();
+            lbi.FontSize = 15;
+            lbi.Content = emp;
+            SelEmpListBox.Items.Add(lbi);
         }
 
-        private void TextBoxDate_GotFocus(object sender, RoutedEventArgs e)
+        private void RemEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
-            TextBoxDate.Text = "";
+            var emp = (SelEmpListBox.SelectedItem as ListBoxItem).Content;
+            SelEmpListBox.Items.Remove(SelEmpListBox.SelectedItem);
+            ListBoxItem lbi = new();
+            lbi.FontSize = 15;
+            lbi.Content = emp;
+            AllEmpListBox.Items.Add(lbi);
         }
     }
 }

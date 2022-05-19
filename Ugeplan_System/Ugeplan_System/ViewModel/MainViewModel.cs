@@ -66,11 +66,23 @@ namespace Ugeplan_System.ViewModel
             }
         }
 
-        public void AddDate(DateTime scheduleDate, string startTime, string endTime, int employeeId, bool workFromHome)
+        public bool AddDate(DateTime scheduleDate, string startTime, string endTime, int employeeId, bool workFromHome)
         {
-            Dvm.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
-            dr.AddDate(scheduleDate, startTime, endTime, employeeId, workFromHome);
-            Evm.First(x => x.EmployeeId == employeeId).Dates.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
+            Employee e = er.GetAllEmployee().Find(e => e.EmployeeId == employeeId);
+
+            if(!e.Dates.Exists(d=> d.ScheduleDate == scheduleDate))
+            {
+                Dvm.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
+                dr.AddDate(scheduleDate, startTime, endTime, employeeId, workFromHome);
+                e.Dates.Add(new Date(scheduleDate, startTime, endTime, workFromHome));
+                Evm.First(x => x.EmployeeId == employeeId).Dates.Add(new DateViewModel(scheduleDate, startTime, endTime, employeeId, workFromHome));
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         // ----------------------------------MEETING---------------------------------- \\

@@ -30,6 +30,14 @@ namespace Ugeplan_System.View
         {
             Mvm = mvm;
             InitializeComponent();
+            ListBoxItem lbi;
+            foreach (EmployeeViewModel evm in Mvm.Evm)
+            {
+                lbi = new();
+                lbi.FontSize = 15;
+                lbi.Content = evm.Name;
+                AllEmpListBox.Items.Add(lbi);
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -41,14 +49,17 @@ namespace Ugeplan_System.View
         {
             string projectName = TextBoxID.Text;
             string description = TextBoxDescription.Text;
-            string startTime = TextBoxStartTime.Text;
-            string endTime = TextBoxEndTime.Text;
+            string startTime = Convert.ToDateTime(StartCalender.SelectedDate).ToShortDateString();
+            string endTime = Convert.ToDateTime(EndCalender.SelectedDate).ToShortDateString();
             int priority = int.Parse(TextBoxPriority.Text);
-            string[] splitArray;
-            splitArray = TextBoxEmployees.Text.Split(';');
+            List<string> names = new();
+            foreach (ListBoxItem lbi in SelEmpListBox.Items)
+            {
+                names.Add(lbi.Content.ToString());
+            }
 
             List<EmployeeViewModel> employees = new();
-            foreach (string s in splitArray)
+            foreach (string s in names)
             {
                 if(Mvm.Evm.Any(e => e.Name == s))
                 {
@@ -58,7 +69,7 @@ namespace Ugeplan_System.View
 
             string emptyString = "";
             string[] stringArrayAgain;
-            foreach (string s in splitArray)
+            foreach (string s in names)
             {
                 stringArrayAgain = s.Split(' ');
                 emptyString += stringArrayAgain[0].Substring(0, 1);
@@ -69,6 +80,26 @@ namespace Ugeplan_System.View
             emptyString = emptyString.Remove(emptyString.Length - 1);
             Mvm.AddProject(projectName, description, startTime, endTime, priority, employees, emptyString);
             this.Close();
+        }
+
+        private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var emp = (AllEmpListBox.SelectedItem as ListBoxItem).Content;
+            AllEmpListBox.Items.Remove(AllEmpListBox.SelectedItem);
+            ListBoxItem lbi = new();
+            lbi.FontSize = 15;
+            lbi.Content = emp;
+            SelEmpListBox.Items.Add(lbi);
+        }
+
+        private void RemEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var emp = (SelEmpListBox.SelectedItem as ListBoxItem).Content;
+            SelEmpListBox.Items.Remove(SelEmpListBox.SelectedItem);
+            ListBoxItem lbi = new();
+            lbi.FontSize = 15;
+            lbi.Content = emp;
+            AllEmpListBox.Items.Add(lbi);
         }
     }
 }

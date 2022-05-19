@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ugeplan_System.View"
         mc:Ignorable="d"
-        Title="AddMeetingWindow" Height="550" Width="800">
+        Title="AddMeetingWindow" Height="800" Width="800">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="370"></RowDefinition>
+            <RowDefinition Height="670"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -28,33 +28,38 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="180"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="140"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="Lokale" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxRoom" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
-            
-            
+            <TextBox x:Name="TextBoxRoom" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
+
+
             <Label Grid.Row="1" Content="Beskrivelse" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxDescription" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
-            
+            <TextBox x:Name="TextBoxDescription" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
+
             <Label Grid.Row="2" Content="Dato" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxDate" Grid.Column="1" Grid.Row="2" Text="YYYY/MM/DD" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="50" FontSize="25" LostFocus="TextBoxDate_LostFocus" GotFocus="TextBoxDate_GotFocus" />
+            <Calendar x:Name="MeetingCal" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" SelectionMode="SingleDate"/>
 
             <Label Grid.Row="3" Content="Tid" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            
-            <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Grid.Column="1" Text="" VerticalAlignment="Top" Margin="0,0,400,0" MinHeight="50" FontSize="25" />
+
+            <TextBox x:Name="TextBoxStartTime" Grid.Row="3" Grid.Column="1" Text="" VerticalAlignment="Center" Margin="0,0,400,0" MinHeight="50" FontSize="25" />
             <Label Grid.Row="3" Grid.Column="1" Content="Til" Margin="300,0,250,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Margin="380,0,20,0" MinHeight="50" FontSize="25" />
+            <TextBox x:Name="TextBoxEndTime" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="380,0,20,0" MinHeight="50" FontSize="25" />
 
             <Label Content="Deltagere" Grid.Row="4" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="TextBoxEmployees" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" Margin="0,0,20,0" MinHeight="50" FontSize="25" />
-
+            <Label Content="Alle medarbejdere" Grid.Row="4" Grid.Column="1" Margin="0,0,400,100" FontSize="15" VerticalAlignment="Top"/>
+            <ListBox x:Name="AllEmpListBox" Grid.Column="1" Grid.Row="4" Margin="0,40,400,0"/>
+            <Button x:Name="AddEmployeeBtn" Content="Tilføj medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,40,250,70" Click="AddEmployeeBtn_Click"/>
+            <Button x:Name="RemEmployeeBtn" Content="Fjern medarbejder" Grid.Column="1" Grid.Row="4" Margin="230,80,250,30" Click="RemEmployeeBtn_Click"/>
+            <Label Content="Valgte medarbejdere" Grid.Row="4" Grid.Column="1" Margin="400,0,0,100" FontSize="15" VerticalAlignment="Top"/>
+            <ListBox x:Name="SelEmpListBox" Grid.Column="1" Grid.Row="4" Margin="380,40,20,0"/>
+            
             <Label Grid.Row="5" Grid.Column="0" Content="Online møde" Margin="50,0,0,0" FontSize="20" VerticalAlignment="Center"/>
             <CheckBox x:Name="OnlineCheck" Content="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Checked="OnlineCheck_Checked">
                 <CheckBox.LayoutTransform>
@@ -63,6 +68,8 @@
             </CheckBox>
             <Button Grid.Row="6" Content="Tilføj" Margin="100,0,100,0" FontSize="25" Click="AddButton_Click" Grid.ColumnSpan="2"/>
             
+
+
 
 
         </Grid>

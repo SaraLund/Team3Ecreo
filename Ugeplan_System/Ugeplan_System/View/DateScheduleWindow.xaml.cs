@@ -23,7 +23,7 @@ namespace Ugeplan_System.View
         public DateTime Day { get; set; }
         public MainViewModel Mvm { get; set; }
         List<EmployeeViewModel> eList = new();
-        
+            
         public DateScheduleWindow(DateTime day, MainViewModel mvm)
         {
             InitializeComponent();
