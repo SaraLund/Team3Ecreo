@@ -23,7 +23,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label x:Name="DateLabel" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="185" Height="32"/>
-            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click"/>
+            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" Width="64" Background="Gainsboro" Click="BackButton_Click"/>
             <Image x:Name="ecreo_png" Margin="35,0,35,0" Grid.RowSpan="2" Grid.Column="1" Source="/ecreo.png"></Image>
         </Grid>
         <ListBox x:Name="listBox" Margin="0,113,0,31" Grid.Row="2">

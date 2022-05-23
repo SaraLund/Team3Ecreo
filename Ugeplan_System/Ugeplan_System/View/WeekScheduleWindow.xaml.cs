@@ -33,7 +33,7 @@ namespace Ugeplan_System.View
             InitializeComponent();
             Week = ISOWeek.GetWeekOfYear(DateTime.Now);
             Year = DateTime.Now.Year;
-            WeekNumberLabel.Content = $"uge {Week} {Year}";
+            WeekNumberLabel.Content = $"Uge {Week} {Year}";
 
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
             MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
@@ -65,8 +65,7 @@ namespace Ugeplan_System.View
             }
 
             Week++;
-            WeekNumberLabel.Content =$"uge {Week} {Year}";
-
+            WeekNumberLabel.Content =$"Uge {Week} {Year}";
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
             MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
 
@@ -91,7 +90,7 @@ namespace Ugeplan_System.View
                 Year--;
             }
             Week--;
-            WeekNumberLabel.Content = $"uge {Week} {Year}";
+            WeekNumberLabel.Content = $"Uge {Week} {Year}";
 
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
             MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";
@@ -112,7 +111,7 @@ namespace Ugeplan_System.View
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Week = int.Parse(SearchTextBox.Text);
-            WeekNumberLabel.Content = $"uge {Week} {Year}";
+            WeekNumberLabel.Content = $"Uge {Week} {Year}";
 
             Day = ISOWeek.ToDateTime(DateTime.Now.Year, Week, DayOfWeek.Monday);
             MondayLabel.Content = $"Mandag {Day.Day}/{Day.Month}";

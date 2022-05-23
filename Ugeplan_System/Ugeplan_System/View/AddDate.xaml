@@ -19,7 +19,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
         <Image x:Name="ecreo_png" Margin="290,5,290,40" Source="/ecreo.png" Grid.Row="0" />
-        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
 
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch" IsReadOnly="True"></TextBox>
         <Label Grid.Row="1" Content="ID" Margin="100,0,650,0" FontSize="25" VerticalAlignment="Center"></Label>

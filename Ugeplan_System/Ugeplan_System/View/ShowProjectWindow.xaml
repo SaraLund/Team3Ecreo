@@ -23,7 +23,7 @@
 
         </Grid.RowDefinitions>
         <Image x:Name="ecreo_png" Margin="290,4,290,60" Source="/ecreo.png" Grid.Row="0" Grid.RowSpan="2"/>
-        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" BorderBrush="White" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
+        <Button x:Name="BackButton" Content="Tilbage" HorizontalAlignment="Left" Margin="717,20,0,0" VerticalAlignment="Top" Height="32" Width="64" Background="Gainsboro" Click="BackButton_Click" Grid.RowSpan="2"/>
 
         <TextBox x:Name="TextBoxID" Grid.Row="1" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="50" FontSize="25" HorizontalAlignment="Stretch"></TextBox>
         <Label Grid.Row="1" Content="Navn" Margin="50,0,618,0" FontSize="25" VerticalAlignment="Center"></Label>
@@ -42,8 +42,8 @@
         <TextBox x:Name="TextBoxEmployees" Grid.Row="6" Grid.RowSpan="2" Text="" VerticalAlignment="Center" Margin="200,0,100,0" MinHeight="130" FontSize="25" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
         <Label Grid.Row="6" Content="Employees" Margin="50,0,618,0" FontSize="20" VerticalAlignment="Center"></Label>
 
-        <Button x:Name="NextProjectButton" Content="Næste projekt" HorizontalAlignment="Left" Margin="700,60,0,0" Grid.Row="0" VerticalAlignment="Top" Click="NextProjectButton_Click"/>
-        <Button x:Name="LastProjectButton" Content="Sidste projekt" HorizontalAlignment="Left" Margin="568,60,0,0" Grid.Row="0" VerticalAlignment="Top" Visibility="Visible" Click="LastProjectButton_Click"/>
+        <Button x:Name="NextProjectButton" Content="Næste Projekt" HorizontalAlignment="Left" Margin="702,60,0,0" Grid.Row="0" VerticalAlignment="Top" Click="NextProjectButton_Click"/>
+        <Button x:Name="LastProjectButton" Content="Sidste Projekt" HorizontalAlignment="Left" Margin="570,60,0,0" Grid.Row="0" VerticalAlignment="Top" Visibility="Visible" Click="LastProjectButton_Click"/>
 
     </Grid>
 </Window>
