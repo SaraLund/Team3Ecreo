@@ -10,13 +10,13 @@ namespace Ugeplan_System.ViewModel
 {
     public class MainViewModel
     {
-        public ObservableCollection<EmployeeViewModel> Evm { get; set; } = new();
+        public List<EmployeeViewModel> Evm { get; set; } = new();
         private static readonly EmployeeRepo er = new();
-        public ObservableCollection<DateViewModel> Dvm { get; set; } = new();
+        public List<DateViewModel> Dvm { get; set; } = new();
         private static readonly DateRepo dr = new();
-        public ObservableCollection<MeetingViewModel> Meetvm { get; set; } = new();
+        public List<MeetingViewModel> Meetvm { get; set; } = new();
         private static readonly MeetingRepo mr = new(er.GetAllEmployee());
-        public ObservableCollection<ProjectViewModel> Pvm { get; set; } = new();
+        public List<ProjectViewModel> Pvm { get; set; } = new();
         private static readonly ProjectRepo pr = new(er.GetAllEmployee());
         public MainViewModel()
         {
