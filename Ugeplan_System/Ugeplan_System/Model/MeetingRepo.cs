@@ -10,7 +10,7 @@ namespace Ugeplan_System.Model
     public class MeetingRepo
     {
         List<Meeting> meetings = new List<Meeting>();
-        private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
+        private readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
         private List<Employee> employees;
 
         public MeetingRepo(List<Employee> employees)
@@ -26,8 +26,8 @@ namespace Ugeplan_System.Model
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-
-                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, EndTime, MeetingDate, OnlineMeeting, Room, Initials FROM Meeting", conn);
+                SqlCommand command = new SqlCommand("SELECT MeetingId, MeetingDescription, StartTime, " +
+                                                    "EndTime, MeetingDate, OnlineMeeting, Room, Initials FROM Meeting", conn);
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
