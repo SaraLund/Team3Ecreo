@@ -10,7 +10,7 @@ namespace Ugeplan_System.Model
     public class ProjectRepo
     {
         private List<Project> projects = new();
-        private static readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
+        private readonly string connStr = "Server=10.56.8.36;Database=PEDB03;User Id=PE-03;Password=OPENDB_03";
         private List<Employee> employees1 = new();
 
         public ProjectRepo(List<Employee> employees)
