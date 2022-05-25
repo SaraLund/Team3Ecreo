@@ -47,14 +47,20 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Margin="13,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32"/>
-            <Button x:Name="SearchButton" Content="Søg" HorizontalAlignment="Left" Margin="203,0,0,0" VerticalAlignment="Center" Height="32" Width="64" Background="Gainsboro" Click="SearchButton_Click" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Margin="13,0,0,0" 
+                     Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="185" Height="32"/>
+            <Button x:Name="SearchButton" Content="Søg" HorizontalAlignment="Left"  Margin="203,0,0,0"
+                    VerticalAlignment="Center" Height="32" Width="64" Background="Gainsboro" Click="SearchButton_Click" Grid.ColumnSpan="2"/>
             <Image x:Name="image" Height="100" Width="100" Grid.Column="1" Margin="83,-25,83,-25" Panel.ZIndex="9"/>
-            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center" Height="32" Width="64" Background="Gainsboro" Click="BackButton_Click"/>
+            <Button x:Name="BackButton" Content="Tilbage" Grid.Column="2" HorizontalAlignment="Left" Margin="194,0,0,0" 
+                    VerticalAlignment="Center" Height="32" Width="64" Background="Gainsboro" Click="BackButton_Click"/>
         </Grid>
-        <Button x:Name="NextWeekButton" Content="Næste Uge" HorizontalAlignment="Left" Margin="718,81,0,0" Grid.Row="1" VerticalAlignment="Top" Click="NextWeekButton_Click"/>
-        <Button x:Name="LastWeekButton" Content="Sidste Uge" HorizontalAlignment="Left" Margin="569,81,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Visible" Click="LastWeekButton_Click"/>
-        <Label x:Name="WeekNumberLabel" Content="" HorizontalAlignment="Left" Margin="635,78,0,0" Grid.Row="1" VerticalAlignment="Top" Width="78"/>
+        <Button x:Name="NextWeekButton" Content="Næste Uge" HorizontalAlignment="Left" 
+                Margin="718,81,0,0" Grid.Row="1" VerticalAlignment="Top" Click="NextWeekButton_Click"/>
+        <Button x:Name="LastWeekButton" Content="Sidste Uge" HorizontalAlignment="Left" 
+                Margin="569,81,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Visible" Click="LastWeekButton_Click"/>
+        <Label x:Name="WeekNumberLabel" Content="" HorizontalAlignment="Left" 
+               Margin="635,78,0,0" Grid.Row="1" VerticalAlignment="Top" Width="78"/>
         <Image x:Name="ecreo_png" Margin="298,4,298,354" Grid.RowSpan="2" Source="/ecreo.png"></Image>
     </Grid>
 </Window>
