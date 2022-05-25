@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Ugeplan_System"
         mc:Ignorable="d"
         Title="WeekScheduleWindow" Height="450" Width="800" Background="White" ResizeMode="NoResize">
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <Grid x:Name="BigGrid" >
+        <Grid.ColumnDefinitions >
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Margin="0,125,0,26" Grid.Row="2">
+        <Grid x:Name="SmallGrid1" Margin="0,125,0,26" Grid.Row="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -38,7 +38,7 @@
 
 
         </Grid>
-        <Grid Margin="0,10,0,360" Grid.Row="1">
+        <Grid x:Name="SmallGrid2" Margin="0,10,0,360" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
