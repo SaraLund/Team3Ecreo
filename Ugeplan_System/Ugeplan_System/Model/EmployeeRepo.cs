@@ -60,5 +60,75 @@ namespace Ugeplan_System.Model
             }
             return employees.Find(e => e.EmployeeId == employeeId);
         }
+
+        public void AddEmployee(string name, string jobPosition, string mail, string phoneNumber)
+        {
+            Employee e = new Employee();
+            e.EmployeeId = employees.Count;
+            e.Name = name;
+            e.JobPosition = jobPosition;
+            e.Mail = mail;
+            e.PhoneNumber = phoneNumber;
+
+            employees.Add(e);
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("INSERT INTO dbo.Employee(EmployeeName, JobPosition, Mail, PhoneNumber)" +
+                                                    "VALUES (@employeeName, @ jobPosition, @mail, @phoneNumber)", conn);
+                command.Parameters.Add("@employeeName", System.Data.SqlDbType.NVarChar).Value = e.Name;
+                command.Parameters.Add("@jobPosition", System.Data.SqlDbType.NVarChar).Value = e.JobPosition;
+                command.Parameters.Add("@mail", System.Data.SqlDbType.NVarChar).Value = e.Mail;
+                command.Parameters.Add("@phoneNumber", System.Data.SqlDbType.NVarChar).Value = e.PhoneNumber;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void RemoveEmployee(Employee oldEmployee)
+        {
+            if (employees.Contains(oldEmployee))
+            {
+                employees.Remove(oldEmployee);
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand("DELETE FROM Employee WHERE EmployeeId = @employeeId;", conn);
+
+                    command.Parameters.Add("@employeeId", System.Data.SqlDbType.Int).Value = oldEmployee.EmployeeId;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateEmployee(int employeeId, string name, string jobPosition, string mail, string phoneNumber)
+        {
+            if (employees.Exists(e => e.EmployeeId == employeeId))
+            {
+                Employee temp = employees.Find(e => e.EmployeeId == employeeId);
+                temp.Name = name;
+                temp.JobPosition = jobPosition;
+                temp.Mail = mail;
+                temp.PhoneNumber = phoneNumber;
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand("UPDATE Employee SET EmployeeName = @employeeName, JobPosition = @jobPosition, Mail = @mail, PhoneNumber = @phoneNumber" +
+                                                        "WHERE EmployeeId = @employeeId", conn);
+
+                    command.Parameters.Add(@name, System.Data.SqlDbType.NVarChar).Value = name;
+                    command.Parameters.Add(@jobPosition, System.Data.SqlDbType.NVarChar).Value = jobPosition;
+                    command.Parameters.Add(@mail, System.Data.SqlDbType.NVarChar).Value = mail;
+                    command.Parameters.Add(@phoneNumber, System.Data.SqlDbType.NVarChar).Value = phoneNumber;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
