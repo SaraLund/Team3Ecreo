@@ -47,7 +47,9 @@ namespace Ugeplan_System.View
                     {
                         WFH = "Fysisk";
                     }
-                    listBoxItem.Content = evm.Name + ": " + d.ScheduleDate.DayOfWeek + " d " + d.ScheduleDate.ToShortDateString() + " " + d.StartTime + " - " + d.EndTime + " : " + WFH;
+                    listBoxItem.Content = evm.Name + ": " + d.ScheduleDate.DayOfWeek + " d " 
+                                                   + d.ScheduleDate.ToShortDateString() 
+                                                   + " " + d.StartTime + " - " + d.EndTime + " : " + WFH;
                     listBox.Items.Add(listBoxItem);
                 }
             }

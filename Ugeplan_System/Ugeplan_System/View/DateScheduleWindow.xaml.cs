@@ -44,7 +44,8 @@ namespace Ugeplan_System.View
                 ListBoxItem listBoxItem = new();
                 listBoxItem.FontSize = 30;
                 string WFH = eList[i].Dates.Find(x => x.ScheduleDate == day).WorkFromHome ? "Online" : "Fysisk";
-                listBoxItem.Content = eList[i].Name + ": " + eList[i].Dates.Find(x => x.ScheduleDate == day).StartTime + " - " + eList[i].Dates.Find(x => x.ScheduleDate == day).EndTime + " : " + WFH;
+                listBoxItem.Content = eList[i].Name + ": " + eList[i].Dates.Find(x => x.ScheduleDate == day).StartTime + " - " 
+                                                    + eList[i].Dates.Find(x => x.ScheduleDate == day).EndTime + " : " + WFH;
                 listBox.Items.Add(listBoxItem);
             }
         }
